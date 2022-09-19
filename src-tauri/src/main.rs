@@ -3,21 +3,17 @@
 	windows_subsystem = "windows"
 )]
 
-use std::{panic::catch_unwind, thread};
-use std::sync::{Arc, Mutex};
-use list::init_key_listing;
-use solo2::{Device, Firmware, Uuid, UuidSelectable};
-use tauri::{command, Manager, State};
-
-mod list;
+use solo::Solo2List;
+use tauri::Manager;
+mod solo;
 mod update;
+mod list;
 fn main() {
 	tauri::Builder::default()
+		.manage(Solo2List(Default::default()))
 		.setup(|app| {
 			let window = app.get_window("main").unwrap();
-			tauri::async_runtime::spawn(
-				init_key_listing(window)
-			);
+			tauri::async_runtime::spawn(list::init_key_listing(window));
 			Ok(())
 		})
 		.invoke_handler(tauri::generate_handler![

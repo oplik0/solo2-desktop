@@ -5,11 +5,11 @@
     import {browser} from "$app/environment";
     import KeyListCard from "./KeyListCard.svelte";
     let solo2list: Solo2List;
-    if (browser)
-    listen("list_keys", (data: any) => {
-			console.log(data);
-			solo2list = data.payload;
-		});
+    if (browser) {
+        listen("usb_change", async () => {
+            solo2list = await invoke("list_keys");
+        })
+    }
     onMount(async () => {
         solo2list = await invoke("list_keys");
     })
