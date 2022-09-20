@@ -10,7 +10,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-20.04
     outputs:
-      release_id: ${{ steps.create-release.outputs.release_id }}
+      release_id: ${{ steps.semantic-release.outputs.release_id }}
 
     steps:
       - uses: actions/checkout@v3
@@ -25,6 +25,7 @@ jobs:
       - name: install dependencies
         run: pnpm install
       - name: semantic release
+        id: semantic-release
         run: pnpm dlx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
