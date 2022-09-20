@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/oplik0/solo2-gui/compare/v1.0.0...v1.0.1) (2022-09-20)
+
+
+### Bug Fixes
+
+* hide isolation iframe ([9e006e4](https://github.com/oplik0/solo2-gui/commit/9e006e4084feda7c870d3fd30a612c3f276dc20d))
+
 # 1.0.0 (2022-09-20)
 
 
