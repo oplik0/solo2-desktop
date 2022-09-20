@@ -17,6 +17,7 @@
 		"@types/semver": "^7.3.12",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
+		"dprint": "^0.32.1",
 		"eslint": "^8.16.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"fluent-svelte": "^1.6.0",

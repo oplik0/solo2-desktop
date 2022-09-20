@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "fluent-svelte/theme.css";
-	import Breadcrumbs from "$lib/Breadcrumbs.svelte"
-	import '../app.css';	
+	import Breadcrumbs from "$lib/Breadcrumbs.svelte";
+	import "../app.css";
 </script>
 
 <Breadcrumbs />
@@ -14,7 +14,6 @@
 	:global(body) {
 		background-color: var(--fds-solid-background-base);
 		color: var(--fds-text-primary);
-		
 	}
 	main {
 		flex: 1;

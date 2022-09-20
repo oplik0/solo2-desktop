@@ -1,5 +1,5 @@
-import adapter from '@sveltejs/adapter-static';
-import preprocess from 'svelte-preprocess';
+import adapter from "@sveltejs/adapter-static";
+import preprocess from "svelte-preprocess";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,18 +11,18 @@ const config = {
 		adapter: adapter(),
 		csp: {
 			directives: {
-				'default-src': ['self'],
-				'script-src': ['self', 'unsafe-inline'],
-				'frame-src': ['self', "*.localhost"],
+				"default-src": ["self"],
+				"script-src": ["self", "unsafe-inline"],
+				"frame-src": ["self", "*.localhost"],
 			},
-			mode: 'hash'
-		}
+			mode: "hash",
+		},
 	},
 	vitePlugin: {
 		experimental: {
-			useVitePreprocess: true
-		}
-	}
+			useVitePreprocess: true,
+		},
+	},
 };
 
 export default config;

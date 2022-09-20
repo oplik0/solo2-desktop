@@ -4,7 +4,7 @@ export const prerender = true;
 export const csr = true;
 
 export const load: Load = ({ params }) => {
-    return {
-        uuid: params.uuid,
-    }
-}
+	return {
+		uuid: params.uuid,
+	};
+};

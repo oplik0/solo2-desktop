@@ -12,12 +12,3 @@ declare namespace App {
 
 	// interface Platform {}
 }
-
-interface Solo2 {
-	uuid: string;
-	version: string;
-	secure: ?boolean;
-}
-interface Solo2List {
-	[uuid: string]: Solo2;
-}

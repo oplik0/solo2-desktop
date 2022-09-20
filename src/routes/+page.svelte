@@ -1,24 +1,25 @@
 <script lang="ts">
-    import { browser } from '$app/environment';
-	import KeyCard from '$lib/KeyCard.svelte';
-    import { listen } from '@tauri-apps/api/event';
-    import { invoke } from '@tauri-apps/api/tauri';
-    import { onMount } from 'svelte';
-	
+	import { browser } from "$app/environment";
+	import KeyCard from "$lib/KeyCard.svelte";
+	import { listen } from "@tauri-apps/api/event";
+	import { invoke } from "@tauri-apps/api/tauri";
+	import type { Solo2List } from "src/types";
+	import { onMount } from "svelte";
+
 	let keyList: Solo2List;
 	let latest_version: string;
-    if (browser) {
-        listen("usb_change", async () => {
-            keyList = await invoke("list_keys");
-        })
+	if (browser) {
+		listen("usb_change", async () => {
+			keyList = await invoke("list_keys");
+		});
 		listen("latest_version", (version) => {
 			latest_version = version.payload as string;
-		})
-    }
-    onMount(async () => {
-        keyList = await invoke("list_keys");
+		});
+	}
+	onMount(async () => {
+		keyList = await invoke("list_keys");
 		latest_version = await invoke("latest_version");
-    })
+	});
 </script>
 
 <svelte:head>
@@ -28,10 +29,10 @@
 
 <section>
 	{#if keyList}
-        {#each Object.values(keyList) as key}
-            <KeyCard key={key} {latest_version} />
-        {/each}
-    {/if}
+		{#each Object.values(keyList) as key}
+			<KeyCard {key} {latest_version} />
+		{/each}
+	{/if}
 </section>
 
 <style>

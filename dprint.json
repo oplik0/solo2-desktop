@@ -1,0 +1,36 @@
+{
+	"typescript": {
+		"useTabs": true
+	},
+	"prettier": {
+		"useTabs": true
+	},
+	"json": {
+		"useTabs": true
+	},
+	"markdown": {},
+	"toml": {
+		"useTabs": true
+	},
+	"rustfmt": {
+		"hard_tabs": true
+	},
+	"includes": [
+		"**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,toml,svelte}"
+	],
+	"excludes": [
+		"**/node_modules",
+		"**/*-lock.json",
+		"**/target/**",
+		".svelte-kit/**",
+		"build**"
+	],
+	"plugins": [
+		"https://plugins.dprint.dev/typescript-0.73.1.wasm",
+		"https://plugins.dprint.dev/json-0.15.6.wasm",
+		"https://plugins.dprint.dev/markdown-0.14.1.wasm",
+		"https://plugins.dprint.dev/toml-0.5.4.wasm",
+		"https://plugins.dprint.dev/rustfmt-0.6.2.json@886c6f3161cf020c2d75160262b0f56d74a521e05cfb91ec4f956650c8ca76ca",
+		"https://plugins.dprint.dev/prettier-0.11.0.json@385edfc0e1212b3be6412cda49322ecd62cb38ac71b9b463869bebf23a4767e3"
+	]
+}
