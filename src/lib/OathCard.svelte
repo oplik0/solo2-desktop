@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { IconButton , TextBlock, ProgressRing, MenuFlyout} from "fluent-svelte";
+    import { IconButton , TextBlock, ProgressRing, MenuFlyout, MenuFlyoutItem} from "fluent-svelte";
     import { invoke } from "@tauri-apps/api/tauri";
     import { writeText } from "@tauri-apps/api/clipboard";
     export let uuid: string;
@@ -23,17 +23,20 @@
             code = "";
         }
     }
+    async function deleteCredential() {
+        await invoke("delete_oath", {uuid: uuid, credential: credential});
+    }
 </script>
 
 <section>
-        <div class="oath-credential-id-container">
-            <TextBlock variant="title" class="oath-credential-id">{credential}</TextBlock>
-            <TextBlock variant="caption">({uuid})</TextBlock>
-        </div>
-        <button on:click={async () => await writeText(code)}>
-            <TextBlock variant="title" class="oath-code {!display_code ? "hidden" : ""}">{code.substring(0, code.length/2)} {code.substring(code.length/2)}</TextBlock>
-        </button>
-        <ProgressRing value={Math.round(100*((timeLeft)/30000))} class="{!display_code ? "hidden" : ""}"></ProgressRing>
+    <div class="oath-credential-id-container">
+        <TextBlock variant="title" class="oath-credential-id">{credential}</TextBlock>
+        <TextBlock variant="caption">({uuid})</TextBlock>
+    </div>
+    <button on:click={async () => await writeText(code)}>
+        <TextBlock variant="title" class="oath-code {!display_code ? "hidden" : ""}">{code.substring(0, code.length/2)} {code.substring(code.length/2)}</TextBlock>
+    </button>
+    <ProgressRing value={Math.round(100*((timeLeft)/30000))} class="{!display_code ? "hidden" : ""}"></ProgressRing>
     <IconButton on:click={flip_code}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             {#if display_code}
@@ -43,8 +46,21 @@
             {/if}
         </svg>
     </IconButton>
-    
-    
+    <MenuFlyout placement="bottom">
+        <IconButton>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 7.75C11.0335 7.75 10.25 6.9665 10.25 6C10.25 5.0335 11.0335 4.25 12 4.25C12.9665 4.25 13.75 5.0335 13.75 6C13.75 6.9665 12.9665 7.75 12 7.75ZM12 13.75C11.0335 13.75 10.25 12.9665 10.25 12C10.25 11.0335 11.0335 10.25 12 10.25C12.9665 10.25 13.75 11.0335 13.75 12C13.75 12.9665 12.9665 13.75 12 13.75ZM10.25 18C10.25 18.9665 11.0335 19.75 12 19.75C12.9665 19.75 13.75 18.9665 13.75 18C13.75 17.0335 12.9665 16.25 12 16.25C11.0335 16.25 10.25 17.0335 10.25 18Z" fill="currentColor"/>
+            </svg>
+        </IconButton>
+        <svelte:fragment slot="flyout">
+            <MenuFlyoutItem on:click={deleteCredential}>
+                <svg slot="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1.75C13.733 1.75 15.1492 3.10645 15.2449 4.81558L15.25 5H20.5C20.9142 5 21.25 5.33579 21.25 5.75C21.25 6.1297 20.9678 6.44349 20.6018 6.49315L20.5 6.5H19.704L18.4239 19.5192C18.2912 20.8683 17.1984 21.91 15.8626 21.9945L15.6871 22H8.31293C6.95734 22 5.81365 21.0145 5.59883 19.6934L5.57614 19.5192L4.295 6.5H3.5C3.1203 6.5 2.80651 6.21785 2.75685 5.85177L2.75 5.75C2.75 5.3703 3.03215 5.05651 3.39823 5.00685L3.5 5H8.75C8.75 3.20507 10.2051 1.75 12 1.75ZM18.197 6.5H5.802L7.06893 19.3724C7.12768 19.9696 7.60033 20.4343 8.18585 20.4936L8.31293 20.5H15.6871C16.2872 20.5 16.7959 20.0751 16.9123 19.4982L16.9311 19.3724L18.197 6.5ZM13.75 9.25C14.1297 9.25 14.4435 9.53215 14.4932 9.89823L14.5 10V17C14.5 17.4142 14.1642 17.75 13.75 17.75C13.3703 17.75 13.0565 17.4678 13.0068 17.1018L13 17V10C13 9.58579 13.3358 9.25 13.75 9.25ZM10.25 9.25C10.6297 9.25 10.9435 9.53215 10.9932 9.89823L11 10V17C11 17.4142 10.6642 17.75 10.25 17.75C9.8703 17.75 9.55651 17.4678 9.50685 17.1018L9.5 17V10C9.5 9.58579 9.83579 9.25 10.25 9.25ZM12 3.25C11.0818 3.25 10.3288 3.95711 10.2558 4.85647L10.25 5H13.75C13.75 4.0335 12.9665 3.25 12 3.25Z" fill="currentColor"/>
+                </svg>
+                Delete
+            </MenuFlyoutItem>
+        </svelte:fragment>
+    </MenuFlyout>
 </section>
 
 <style>

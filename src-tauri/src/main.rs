@@ -41,6 +41,7 @@ fn main() {
 			oath::list_oath,
 			oath::get_oath_code,
 			oath::register_oath,
+			oath::delete_oath,
 		])
 		.run(tauri::generate_context!())
 		.expect("error while running tauri application");

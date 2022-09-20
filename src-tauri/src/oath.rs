@@ -73,9 +73,23 @@ pub async fn register_oath(uuid: String, label: String, issuer: Option<String>, 
     let mut oath = Oath::select(&mut device).unwrap();
     match oath.register(credential) {
         Ok(label) => {
-            window.emit("oath_registered", Some(true)).unwrap();
+            window.emit("oath_change", Some(true)).unwrap();
             Ok(label)
         }
         Err(e) => Err(format!("Error while registering credential: {:?}", e)),
+    }
+}
+#[tauri::command]
+pub async fn delete_oath(uuid: String, credential: String, state: State<'_, Solo2List>, window: tauri::Window) -> Result<(), String> {
+    let _list = state.0.lock().await;
+    let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
+    let mut device = Solo2::having(converted_uuid).unwrap();
+    let mut oath = Oath::select(&mut device).unwrap();
+    match oath.delete(credential) {
+        Ok(_) => {
+            window.emit("oath_change", Some(true)).unwrap();
+            Ok(())
+        },
+        Err(e) => Err(format!("Error while deleting credential: {:?}", e)),
     }
 }

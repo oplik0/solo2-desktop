@@ -12,7 +12,7 @@
     }
     if (browser) {
         listen("usb_change", refreshOathList);
-        listen("oath_registered", refreshOathList);
+        listen("oath_change", refreshOathList);
     }
     onMount(refreshOathList);
 </script>
