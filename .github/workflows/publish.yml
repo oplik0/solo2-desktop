@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_id: ${{ steps.semantic-release.outputs.release_id }}
+      release_ref: ${{ steps.sget-ref.outputs.result }}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -28,6 +29,19 @@ jobs:
         run: pnpm dlx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: get ref
+        id: get-ref
+        uses: actions/github-script@v6
+        env:
+          release_id: ${{ steps.semantic-release.outputs.release_id }}
+        with:
+          script: |
+            const { data } = github.rest.repos.getRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: process.env.release_id,
+            })
+            return `refs/tags/${data.tag_name}`
 
   build-tauri:
     if: "!contains(github.event.head_commit.message, '[skip ci]') && needs.create-release.outputs.release_id"
@@ -40,6 +54,8 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ needs.create-release.outputs.release_ref }}
       - uses: pnpm/action-setup@v2
         with:
           version: 7
