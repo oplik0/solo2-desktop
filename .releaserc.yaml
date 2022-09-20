@@ -8,11 +8,15 @@ plugins:
   - "@semantic-release/release-notes-generator"
   - ["@semantic-release/changelog", { changelogFile: "docs/CHANGELOG.md" }]
   - ["@semantic-release/npm", { npmPublish: false }]
-  - ["@semantic-release/git", { assets: ["docs/CHANGELOG.md", "package.json"] }]
+  - [
+      "@semantic-release/git",
+      { assets: ["docs/CHANGELOG.md", "package.json", "src-tauri/Cargo.toml"] },
+    ]
   - ["@opliko/semantic-release-github", { draftRelease: true }]
   - [
       "@semantic-release/exec",
       {
-        "successCmd": "node .github/workflows/output-release-id.js ${releases.filter(r => r.pluginName === '@opliko/semantic-release-github')[0].id}",
+        prepareCmd: 'sed ''s/version = "${lastRelease.version}"/version = "${nextRelease.version}"/'' src-tauri/Cargo.toml',
+        successCmd: "node .github/workflows/output-release-id.js ${releases.filter(r => r.pluginName === '@opliko/semantic-release-github')[0].id}",
       },
     ]

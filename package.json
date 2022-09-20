@@ -1,6 +1,11 @@
 {
 	"name": "solo2-desktop",
 	"version": "1.0.0-alpha.2",
+	"author": {
+		"name": "oplik0",
+		"email": "opliko.reg@protonmail.com",
+		"url": "https://github.com/oplik0/"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
