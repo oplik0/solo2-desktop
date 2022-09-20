@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-09-20)
+
+
+### Bug Fixes
+
+* make release id work perhaps ([7e3a830](https://github.com/oplik0/solo2-gui/commit/7e3a83000fac44a71ba4375cf842bb17d16e5854))
+
 # [1.0.0-alpha.4](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-09-20)
 
 
