@@ -11,10 +11,24 @@
     "version": "0.1.0"
   },
   "tauri": {
-    "allowlist": {},
+    "pattern": {
+      "use": "isolation",
+      "options": {
+        "dir": "../isolation"
+      }
+    },
+    "allowlist": {
+      "all": false,
+      "window": {
+        "setDecorations": true
+      },
+      "shell": {
+        "open": true
+      }
+    },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
+      "category": "Utility",
       "copyright": "",
       "deb": {
         "depends": []
@@ -46,19 +60,24 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": {
+        "default-src": "'self' tauri:",
+        "frame-src": "*.localhost"
+      }
     },
     "updater": {
       "active": false
     },
     "windows": [
       {
-        "title": "solo2",
+        "title": "Solo2 GUI",
         "width": 800,
         "height": 600,
         "resizable": true,
         "fullscreen": false,
-        "label": "main"
+        "label": "main",
+        "transparent": true,
+        "decorations": false
       }
     ]
   }

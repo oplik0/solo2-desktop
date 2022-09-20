@@ -3,7 +3,7 @@ use std::{
 	collections::BTreeMap,
 	panic::catch_unwind,
 };
-use solo2::{Solo2, UuidSelectable};
+use solo2::{Solo2, UuidSelectable, firmware::github};
 use tauri::{command, State, Window};
 use crate::solo::{Solo2Info, Solo2List};
 use usb_enumeration::Observer;
@@ -33,5 +33,23 @@ pub async fn init_key_listing(window: Window) {
 		window.emit("usb_change", false).unwrap_or_else(|e| {
 			println!("Error while emitting usb_change: {:?}", e);
 		});
+	}
+}
+
+#[command]
+pub async fn latest_version() -> Result<String, String> {
+	match github::Release::fetch_spec() {
+		Ok(release) => Ok(release.tag),
+		Err(e) => Err(format!("Error while fetching latest version: {:?}", e)),
+	}
+}
+
+pub async fn init_fetching_latest_version(window:Window) {
+	loop {
+		let version = latest_version().await.unwrap_or("0.0.0".to_string());
+		window.emit("latest_version", version).unwrap_or_else(|e| {
+			println!("Error while emitting latest_version: {:?}", e);
+		});
+		tokio::time::sleep(std::time::Duration::from_secs(15 * 60)).await;
 	}
 }

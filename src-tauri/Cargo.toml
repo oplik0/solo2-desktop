@@ -12,17 +12,18 @@ rust-version = "1.57"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "1.1.1", features = [] }
+tauri-build = { version = "1.1.1", features = ["isolation"] }
 
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.1.1", features = [] }
+tauri = { version = "1.1.1", features = ["isolation", "shell-open", "window-set-decorations"] }
 solo2 = { version = "0.2.1", features = ["dev-pki"] }
 memoize = { version = "0.3.1", features = ["lru"] }
 ureq = "2.5.0"
 tokio = { version = "1.21.1", features = ["sync", "time"] }
 usb_enumeration = "0.1.2"
+window-vibrancy = "0.3.0"
 
 [features]
 # by default Tauri runs in production mode

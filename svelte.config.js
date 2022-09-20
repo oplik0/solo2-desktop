@@ -8,7 +8,20 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		csp: {
+			directives: {
+				'default-src': ['self'],
+				'script-src': ['self', 'unsafe-inline'],
+				'frame-src': ['self', "*.localhost"],
+			},
+			mode: 'hash'
+		}
+	},
+	vitePlugin: {
+		experimental: {
+			useVitePreprocess: true
+		}
 	}
 };
 
