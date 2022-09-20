@@ -2,7 +2,7 @@
 name = "solo2-desktop"
 version = "1.0.0-alpha.3"
 authors = ["oplik0"]
-default-run = "app"
+default-run = "solo2-desktop"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/oplik0/solo2-desktop.git"

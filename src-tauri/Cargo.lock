@@ -109,22 +109,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "98161a4e3e2184da77bb14f02184cdd111e83bbbcc9979dfee3c44b9a85f5602"
 
 [[package]]
-name = "app"
-version = "0.1.0"
-dependencies = [
- "memoize",
- "serde",
- "serde_json",
- "solo2",
- "tauri",
- "tauri-build",
- "tokio",
- "ureq",
- "usb_enumeration",
- "window-vibrancy",
-]
-
-[[package]]
 name = "ascii"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3717,6 +3701,22 @@ dependencies = [
  "webbrowser",
  "x509-parser",
  "yasna",
+]
+
+[[package]]
+name = "solo2-desktop"
+version = "1.0.0-alpha.2"
+dependencies = [
+ "memoize",
+ "serde",
+ "serde_json",
+ "solo2",
+ "tauri",
+ "tauri-build",
+ "tokio",
+ "ureq",
+ "usb_enumeration",
+ "window-vibrancy",
 ]
 
 [[package]]
