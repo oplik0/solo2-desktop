@@ -1,5 +1,6 @@
 <script lang="ts">
     import { browser } from '$app/environment';
+    import AddOath from '$lib/AddOath.svelte';
 	import OathCard from '$lib/OathCard.svelte';
     import { listen } from '@tauri-apps/api/event';
     import { invoke } from '@tauri-apps/api/tauri';
@@ -8,7 +9,7 @@
     export let data: PageData;
 	
 	let oathList: Array<string>;
-    let uuid = data.uuid ?? "";
+    let uuid: string = data.uuid ?? "";
     if (browser) {
         listen("usb_change", async () => {
             oathList = await invoke("list_oath", { uuid });
@@ -30,6 +31,7 @@
             <OathCard {credential} {uuid} />
         {/each}
     {/if}
+    <AddOath {uuid}></AddOath>
 </section>
 
 <style>

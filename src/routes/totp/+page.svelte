@@ -1,6 +1,7 @@
 <script lang="ts">
     import { browser } from '$app/environment';
 	import OathCard from '$lib/OathCard.svelte';
+    import AddOath from '$lib/AddOath.svelte';
     import { listen } from '@tauri-apps/api/event';
     import { invoke } from '@tauri-apps/api/tauri';
     import { onMount } from 'svelte';
@@ -27,6 +28,7 @@
             <OathCard {credential} {uuid} />
         {/each}
     {/if}
+    <AddOath></AddOath>
 </section>
 
 <style>

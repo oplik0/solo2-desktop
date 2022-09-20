@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 
 use tauri::{command, State, Window};
 use solo2::apps::Oath;
-use solo2::apps::oath::Authenticate;
+use solo2::apps::oath::{Authenticate, Credential, Totp, Kind, Digest, Secret};
 use solo2::{UuidSelectable, Uuid, Solo2, Select};
 
 use crate::solo::Solo2List;
@@ -35,7 +35,8 @@ pub async fn list_oath(uuid: Option<String>, state: State<'_, Solo2List>)-> Resu
 }
 
 #[command]
-pub async fn get_oath_code(uuid: String, credential: String) -> Result<String, String> {
+pub async fn get_oath_code(uuid: String, credential: String, state: State<'_, Solo2List>) -> Result<String, String> {
+    let _list = state.0.lock().await;
     let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
     let mut device = Solo2::having(converted_uuid).unwrap();
     let mut oath = Oath::select(&mut device).unwrap();
@@ -44,5 +45,34 @@ pub async fn get_oath_code(uuid: String, credential: String) -> Result<String, S
             Ok(code)
         },
         Err(e) => Err(format!("Error while getting code: {:?}", e)),
+    }
+}
+#[command]
+pub async fn register_oath(uuid: String, label: String, issuer: Option<String>, secret: String, kind: String, algorithm: String, period: u32, digits: u8, state: State<'_, Solo2List>) -> Result<String, String> {
+    let _list = state.0.lock().await;
+    let digest = match algorithm.as_str(){
+        "sha1" => Digest::Sha1,
+        "sha256" => Digest::Sha256,
+        _ => return Err("Unsupported credential type".to_string())
+    };
+    println!("label: {:?}", label);
+    let credential = Credential{
+        label,
+        issuer,
+        secret: Secret::from_base32(&secret.to_uppercase(), digest).unwrap(),
+        algorithm: digest,
+        kind: match kind.as_str() {
+            "totp" => Kind::Totp(Totp{period}),
+            _ => return Err("Unsupported credential type".to_string()),
+        },
+        digits,
+    };
+    
+    let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
+    let mut device = Solo2::having(converted_uuid).unwrap();
+    let mut oath = Oath::select(&mut device).unwrap();
+    match oath.register(credential) {
+        Ok(label) => Ok(label),
+        Err(e) => Err(format!("Error while registering credential: {:?}", e)),
     }
 }

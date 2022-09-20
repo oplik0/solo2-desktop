@@ -40,6 +40,7 @@ fn main() {
 			update::update_key,
 			oath::list_oath,
 			oath::get_oath_code,
+			oath::register_oath,
 		])
 		.run(tauri::generate_context!())
 		.expect("error while running tauri application");
