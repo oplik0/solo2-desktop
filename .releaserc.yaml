@@ -9,5 +9,7 @@ plugins:
   - ["@opliko/semantic-release-github", { draftRelease: true }]
   - [
       "@semantic-release/exec",
-      { "successCmd": "::set-output name=result::${releases[0].id}" },
+      {
+        "successCmd": "node .github/workflows/output-release-id.js ${releases[0].id}",
+      },
     ]

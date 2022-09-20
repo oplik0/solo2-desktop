@@ -10,16 +10,18 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-20.04
     outputs:
-      release_id: ${{ steps.create-release.outputs.result }}
+      release_id: ${{ steps.create-release.outputs.release_id }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - name: setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: enable corepack
-        run: corepack enable
+          cache: pnpm
       - name: install dependencies
         run: pnpm install
       - name: semantic release
@@ -28,7 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-tauri:
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && needs.create-release.outputs.release_id"
     needs: create-release
     strategy:
       fail-fast: false
@@ -37,11 +39,15 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - name: setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: pnpm
       - name: install Rust stable
         uses: actions-rs/toolchain@v1
         with:
@@ -52,7 +58,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev webkit2gtk-4.0 libappindicator3-dev librsvg2-dev patchelf
       - name: install app dependencies and build it
-        run: yarn && yarn build
+        run: pnpm install && pnpm build
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +66,7 @@ jobs:
           releaseId: ${{ needs.create-release.outputs.release_id }}
 
   publish-release:
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && needs.create-release.outputs.release_id"
     runs-on: ubuntu-20.04
     needs: [create-release, build-tauri]
 
