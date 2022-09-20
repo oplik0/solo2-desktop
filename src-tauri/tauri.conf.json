@@ -8,7 +8,7 @@
 	},
 	"package": {
 		"productName": "solo2-desktop",
-		"version": "../package.json"
+		"version": "0.1.0"
 	},
 	"tauri": {
 		"pattern": {
@@ -69,11 +69,18 @@
 			}
 		},
 		"updater": {
-			"active": false
+			"active": true,
+			"pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDg1MDQwOEY1NDQyOEU0MUUKUldRZTVDaEU5UWdFaGRxcG02clNCMGNRcUpxSmFwN1U2R05BenlyeXdVZXFmcTdNQ09VaVhuaUgK",
+			"endpoints": [
+				"https://update.solo2.opliko.dev/v1",
+				"https://static.update.solo2.opliko.dev/update.json",
+				"https://gist.githubusercontent.com/oplik0/cce8cca939d9614538f293393d9521f3/raw/057f58ff2fa764ddbdfbd1a6694698d1043dd9ca/update.json"
+			],
+			"dialog": true
 		},
 		"windows": [
 			{
-				"title": "Solo2 GUI",
+				"title": "Solo2 Desktop",
 				"width": 800,
 				"height": 800,
 				"resizable": true,
