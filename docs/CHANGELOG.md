@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-09-20)
+
+
+### Bug Fixes
+
+* test output ([d49d4ce](https://github.com/oplik0/solo2-gui/commit/d49d4ce9a9950a902f534f6ef981681f45391f07))
+
 # [1.0.0-alpha.3](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-09-20)
 
 
