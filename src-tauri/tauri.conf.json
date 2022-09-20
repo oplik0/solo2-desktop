@@ -7,8 +7,8 @@
 		"distDir": "../build"
 	},
 	"package": {
-		"productName": "solo2-gui",
-		"version": "0.1.0"
+		"productName": "solo2-desktop",
+		"version": "../package.json"
 	},
 	"tauri": {
 		"pattern": {

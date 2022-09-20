@@ -8,6 +8,7 @@ specifiers:
   '@semantic-release/commit-analyzer': ^9.0.2
   '@semantic-release/exec': ^6.0.3
   '@semantic-release/git': ^10.0.1
+  '@semantic-release/npm': ^9.0.1
   '@semantic-release/release-notes-generator': ^10.0.3
   '@sveltejs/adapter-static': 1.0.0-next.43
   '@sveltejs/kit': next
@@ -43,6 +44,7 @@ devDependencies:
   '@semantic-release/commit-analyzer': 9.0.2_semantic-release@19.0.5
   '@semantic-release/exec': 6.0.3_semantic-release@19.0.5
   '@semantic-release/git': 10.0.1_semantic-release@19.0.5
+  '@semantic-release/npm': 9.0.1_semantic-release@19.0.5
   '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.5
   '@sveltejs/adapter-static': 1.0.0-next.43
   '@sveltejs/kit': 1.0.0-next.490_svelte@3.50.1+vite@3.1.2

@@ -1,5 +1,5 @@
 {
-	"name": "solo2-gui",
+	"name": "solo2-desktop",
 	"version": "0.0.0-development",
 	"scripts": {
 		"dev": "vite dev",
@@ -17,6 +17,7 @@
 		"@semantic-release/commit-analyzer": "^9.0.2",
 		"@semantic-release/exec": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
+		"@semantic-release/npm": "^9.0.1",
 		"@semantic-release/release-notes-generator": "^10.0.3",
 		"@sveltejs/adapter-static": "1.0.0-next.43",
 		"@sveltejs/kit": "next",
