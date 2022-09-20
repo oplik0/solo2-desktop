@@ -16,7 +16,7 @@ plugins:
   - [
       "@semantic-release/exec",
       {
-        prepareCmd: 'sed ''s/version = "${lastRelease.version}"/version = "${nextRelease.version}"/'' src-tauri/Cargo.toml',
+        prepareCmd: 'sed -i ''s/version = "${lastRelease.version}"/version = "${nextRelease.version}"/'' src-tauri/Cargo.toml',
         successCmd: "node .github/workflows/output-release-id.js ${releases.filter(r => r.pluginName === '@opliko/semantic-release-github')[0].id}",
       },
     ]
