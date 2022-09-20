@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { IconButton , TextBlock, ProgressRing} from "fluent-svelte";
+    import { IconButton , TextBlock, ProgressRing, MenuFlyout} from "fluent-svelte";
     import { invoke } from "@tauri-apps/api/tauri";
-    import { now } from "svelte/internal";
+    import { writeText } from "@tauri-apps/api/clipboard";
     export let uuid: string;
     export let credential: string;
     let code = "";
@@ -26,13 +26,14 @@
 </script>
 
 <section>
-    <div class="oath-credential-id-container">
-        <TextBlock variant="title" class="oath-credential-id">{credential}</TextBlock>
-        <TextBlock variant="caption">({uuid})</TextBlock>
-    </div>
-    <div class="oath-code-container">
-        <TextBlock variant="title" class="oath-code {!display_code ? "hidden" : ""}">{code}</TextBlock>
-        <ProgressRing value={100*((timeLeft)/30000)} class="{!display_code ? "hidden" : ""}"></ProgressRing>
+        <div class="oath-credential-id-container">
+            <TextBlock variant="title" class="oath-credential-id">{credential}</TextBlock>
+            <TextBlock variant="caption">({uuid})</TextBlock>
+        </div>
+        <button on:click={async () => await writeText(code)}>
+            <TextBlock variant="title" class="oath-code {!display_code ? "hidden" : ""}">{code.substring(0, code.length/2)} {code.substring(code.length/2)}</TextBlock>
+        </button>
+        <ProgressRing value={Math.round(100*((timeLeft)/30000))} class="{!display_code ? "hidden" : ""}"></ProgressRing>
     <IconButton on:click={flip_code}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             {#if display_code}
@@ -42,20 +43,34 @@
             {/if}
         </svg>
     </IconButton>
-    </div>
+    
     
 </section>
 
 <style>
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        color: var(--fds-card-text-default);
+        cursor: pointer;
+        opacity: 1;
+    }
+    button:active {
+        opacity: 0.8;
+    }
     :global(.oath-credential-id) {
         justify-self: flex-start;
         flex-grow: 8;
     }
     :global(.oath-code) {
-        width: 224px;
+        width: 100%;
+        text-align: right;
     }
     section {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr minmax(100px, max-content) min-content min-content min-content;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -74,6 +89,9 @@
         box-sizing: border-box;
         gap: 12px;
     }
+    :global(.hidden) {
+        visibility: hidden;
+    }
     .oath-credential-id-container {
         justify-self: flex-start;
         display: flex;
@@ -81,17 +99,5 @@
         align-items: center;
         justify-content: flex-start;
         gap: 12px;
-    }
-    .oath-code-container {
-        justify-self: flex-end;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        text-align: right;
-        gap: 12px;
-    }
-    :global(.hidden) {
-        visibility: hidden;
     }
 </style>
