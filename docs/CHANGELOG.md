@@ -1,3 +1,11 @@
+# [1.0.0-alpha.3](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-09-20)
+
+
+### Bug Fixes
+
+* **release:** use -i in sed ([a7e6fc9](https://github.com/oplik0/solo2-gui/commit/a7e6fc96fdbe572ab4b05c45c970461c286dd14f))
+* update version in Cargo.toml ([d8cfcef](https://github.com/oplik0/solo2-gui/commit/d8cfcefb5cb6029efc73d685214439e72343ca7e))
+
 # [1.0.0-alpha.2](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-09-20)
 
 
