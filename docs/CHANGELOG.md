@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-09-20)
+
+
+### Bug Fixes
+
+* default-run target ([f532ff5](https://github.com/oplik0/solo2-gui/commit/f532ff5ff8a65f434de6b732770c36bb1306aaf9))
+
 # [1.0.0-alpha.3](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-09-20)
 
 
