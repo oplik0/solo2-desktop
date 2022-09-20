@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-09-20)
+
+
+### Bug Fixes
+
+* set version to package.json ([a397dc4](https://github.com/oplik0/solo2-gui/commit/a397dc48c8b7d62e4a130d95933fa7764c1e39f9))
+
 # [1.0.0-alpha.4](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-09-20)
 
 
