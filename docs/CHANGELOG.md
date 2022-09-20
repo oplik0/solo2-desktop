@@ -1,3 +1,10 @@
+# [1.0.0-alpha.2](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-09-20)
+
+
+### Features
+
+* add updater ([8b40e08](https://github.com/oplik0/solo2-gui/commit/8b40e08af7832a00c91e6c90fff25fd4bd51e985))
+
 # 1.0.0-alpha.1 (2022-09-20)
 
 
