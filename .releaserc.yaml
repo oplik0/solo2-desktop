@@ -13,6 +13,6 @@ plugins:
   - [
       "@semantic-release/exec",
       {
-        "successCmd": "node .github/workflows/output-release-id.js '${JSON.stringify(releases)}'",
+        "successCmd": "node .github/workflows/output-release-id.js ${releases.filter(r => r.pluginName === '@opliko/semantic-release-github')[0].id}",
       },
     ]
