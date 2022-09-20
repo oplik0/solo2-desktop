@@ -1,3 +1,10 @@
+# [1.0.0-alpha.7](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-09-20)
+
+
+### Bug Fixes
+
+* **release:** use tag ref ([8417d4d](https://github.com/oplik0/solo2-gui/commit/8417d4dbd14c672a59e677e3969b7311e9dbcb20))
+
 # [1.0.0-alpha.6](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-09-20)
 
 
