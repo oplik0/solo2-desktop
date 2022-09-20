@@ -10,14 +10,14 @@
 	
 	let oathList: Array<string>;
     let uuid: string = data.uuid ?? "";
-    if (browser) {
-        listen("usb_change", async () => {
-            oathList = await invoke("list_oath", { uuid });
-        })
-    }
-    onMount(async () => {
+    async function refreshOathList() {
         oathList = await invoke("list_oath", { uuid });
-    })
+    }
+    if (browser) {
+        listen("usb_change", refreshOathList);
+        listen("oath_registered", refreshOathList);
+    }
+    onMount(refreshOathList);
 </script>
 
 <svelte:head>
@@ -31,7 +31,7 @@
             <OathCard {credential} {uuid} />
         {/each}
     {/if}
-    <AddOath {uuid}></AddOath>
+    <AddOath uuid={[uuid]}></AddOath>
 </section>
 
 <style>

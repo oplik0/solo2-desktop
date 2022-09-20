@@ -7,14 +7,14 @@
     import { onMount } from 'svelte';
 	
 	let oathList: Record<string, string>;
-    if (browser) {
-        listen("usb_change", async () => {
-            oathList = await invoke("list_oath");
-        })
-    }
-    onMount(async () => {
+        async function refreshOathList() {
         oathList = await invoke("list_oath");
-    })
+    }
+    if (browser) {
+        listen("usb_change", refreshOathList);
+        listen("oath_registered", refreshOathList);
+    }
+    onMount(refreshOathList);
 </script>
 
 <svelte:head>
@@ -28,7 +28,7 @@
             <OathCard {credential} {uuid} />
         {/each}
     {/if}
-    <AddOath></AddOath>
+    <AddOath uuid={Object.values(oathList ?? {})}></AddOath>
 </section>
 
 <style>

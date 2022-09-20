@@ -48,7 +48,7 @@ pub async fn get_oath_code(uuid: String, credential: String, state: State<'_, So
     }
 }
 #[command]
-pub async fn register_oath(uuid: String, label: String, issuer: Option<String>, secret: String, kind: String, algorithm: String, period: u32, digits: u8, state: State<'_, Solo2List>) -> Result<String, String> {
+pub async fn register_oath(uuid: String, label: String, issuer: Option<String>, secret: String, kind: String, algorithm: String, period: u32, digits: u8, state: State<'_, Solo2List>, window: Window) -> Result<String, String> {
     let _list = state.0.lock().await;
     let digest = match algorithm.as_str(){
         "sha1" => Digest::Sha1,
@@ -72,7 +72,10 @@ pub async fn register_oath(uuid: String, label: String, issuer: Option<String>, 
     let mut device = Solo2::having(converted_uuid).unwrap();
     let mut oath = Oath::select(&mut device).unwrap();
     match oath.register(credential) {
-        Ok(label) => Ok(label),
+        Ok(label) => {
+            window.emit("oath_registered", Some(true)).unwrap();
+            Ok(label)
+        }
         Err(e) => Err(format!("Error while registering credential: {:?}", e)),
     }
 }

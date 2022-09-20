@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { Button, IconButton , TextBlock, ProgressRing, ContentDialog, TextBox, Expander, RadioButton } from "fluent-svelte";
+    import { Button, ComboBox , TextBlock, ProgressRing, ContentDialog, TextBox, Expander, RadioButton } from "fluent-svelte";
     import { invoke } from "@tauri-apps/api/tauri";
-    export let uuid: string = "";
-    let selected_uuid: string = uuid;
+    export let uuid: string[];
+    let selected_uuid: string = uuid[0];
     let open = false;
     let label: string;
     let issuer: string;
@@ -30,9 +30,9 @@
     <TextBlock variant="subtitle">Register a new TOTP credential</TextBlock>
     <Button variant="accent" on:click={() => open = !open}>Add crededntial</Button>
     <ContentDialog {open} class="register-dialog">
-        {#if uuid===""}
+        {#if uuid.length > 1}
             <TextBlock variant="title">Register a new TOTP credential</TextBlock>
-            <TextBox bind:value={selected_uuid}></TextBox>
+            <ComboBox items={[... new Set(uuid)].map(uuid => ({name: uuid, value: uuid}))} bind:value={selected_uuid}></ComboBox>
         {:else}
             <TextBlock variant="title">Register a new TOTP credential</TextBlock>
         {/if}
