@@ -1,3 +1,19 @@
+# [1.0.0-alpha.2](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-09-20)
+
+
+### Bug Fixes
+
+* currect updater endpoints ([6741bee](https://github.com/oplik0/solo2-gui/commit/6741beef3f5b28e70eca1bce5538a46eca8ffb68))
+* filter releases ([c1cc36d](https://github.com/oplik0/solo2-gui/commit/c1cc36dbff432c31ca53595e0389cf643b2e0f28))
+* it's not python ([ca581a2](https://github.com/oplik0/solo2-gui/commit/ca581a288e3ae3349f189549dbeea842507414f5))
+* make release id work perhaps ([7e3a830](https://github.com/oplik0/solo2-gui/commit/7e3a83000fac44a71ba4375cf842bb17d16e5854))
+* test output ([d49d4ce](https://github.com/oplik0/solo2-gui/commit/d49d4ce9a9950a902f534f6ef981681f45391f07))
+
+
+### Features
+
+* add updater ([8b40e08](https://github.com/oplik0/solo2-gui/commit/8b40e08af7832a00c91e6c90fff25fd4bd51e985))
+
 # [1.0.0-alpha.6](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-09-20)
 
 
