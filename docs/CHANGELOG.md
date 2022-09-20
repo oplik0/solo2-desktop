@@ -1,3 +1,10 @@
+# [1.0.0-alpha.3](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-09-20)
+
+
+### Bug Fixes
+
+* currect updater endpoints ([6741bee](https://github.com/oplik0/solo2-gui/commit/6741beef3f5b28e70eca1bce5538a46eca8ffb68))
+
 # [1.0.0-alpha.2](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-09-20)
 
 
