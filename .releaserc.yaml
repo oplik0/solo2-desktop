@@ -1,5 +1,7 @@
 branches:
   - main
+  - name: alpha
+    prerelease: true
 repositoryUrl: https://github.com/oplik0/solo2-gui.git
 plugins:
   - ["@semantic-release/commit-analyzer", { preset: "conventionalcommits" }]
