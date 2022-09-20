@@ -13,6 +13,6 @@ plugins:
   - [
       "@semantic-release/exec",
       {
-        "successCmd": "node .github/workflows/output-release-id.js ${releases[0].id}",
+        "successCmd": "node .github/workflows/output-release-id.js '${JSON.stringify(releases)}'",
       },
     ]
