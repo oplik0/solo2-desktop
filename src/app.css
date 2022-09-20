@@ -86,3 +86,8 @@ input,
 		font-size: 2.4rem;
 	}
 }
+
+iframe {
+	outline: none;
+	display: none;
+}
