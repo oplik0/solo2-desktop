@@ -28,6 +28,8 @@ jobs:
         run: pnpm dlx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: echo outputs
+        run: echo ${{ steps.semantic-release.outputs.release_id }}
 
   build-tauri:
     if: "!contains(github.event.head_commit.message, '[skip ci]') && needs.create-release.outputs.release_id"
