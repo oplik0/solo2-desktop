@@ -1,3 +1,10 @@
+# [1.0.0-alpha.6](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-09-20)
+
+
+### Bug Fixes
+
+* remove some unnecessary styles ([207eb60](https://github.com/oplik0/solo2-gui/commit/207eb6034d632124837d169c9f6ffa30d00364ba))
+
 # [1.0.0-alpha.5](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-09-20)
 
 
