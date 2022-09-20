@@ -1,6 +1,6 @@
 {
 	"name": "solo2-desktop",
-	"version": "1.0.0-alpha.5",
+	"version": "1.0.0-alpha.6",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

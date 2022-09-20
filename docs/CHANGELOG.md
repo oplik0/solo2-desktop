@@ -1,3 +1,10 @@
+# [1.0.0-alpha.6](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-09-20)
+
+
+### Bug Fixes
+
+* it's not python ([ca581a2](https://github.com/oplik0/solo2-gui/commit/ca581a288e3ae3349f189549dbeea842507414f5))
+
 # [1.0.0-alpha.5](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-09-20)
 
 
