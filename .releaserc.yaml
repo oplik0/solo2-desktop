@@ -1,0 +1,13 @@
+branches:
+  - main
+repositoryUrl: https://github.com/oplik0/solo2-gui.git
+plugins:
+  - ["@semantic-release/commit-analyzer", { preset: "conventionalcommits" }]
+  - "@semantic-release/release-notes-generator"
+  - ["@semantic-release/changelog", { changelogFile: "docs/CHANGELOG.md" }]
+  - ["@semantic-release/git", { assets: ["docs/CHANGELOG.md"] }]
+  - ["@opliko/semantic-release-github", { draftRelease: true }]
+  - [
+      "@semantic-release/exec",
+      { "successCmd": "::set-output name=result::${releases[0].id}" },
+    ]
