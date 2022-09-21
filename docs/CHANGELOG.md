@@ -1,3 +1,11 @@
+# [1.0.0-alpha.17](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.16...v1.0.0-alpha.17) (2022-09-21)
+
+
+### Features
+
+* better UX when hiding TOTP codes ([b1be12a](https://github.com/oplik0/solo2-gui/commit/b1be12a1354ec7b5c38805666cfdd81aaac56177))
+* wink ([771e0c4](https://github.com/oplik0/solo2-gui/commit/771e0c4a78baa304148dfcc88c6a4796c6c48bb8))
+
 # [1.0.0-alpha.16](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2022-09-21)
 
 
