@@ -1,3 +1,10 @@
+# [1.0.0-alpha.10](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-09-21)
+
+
+### Bug Fixes
+
+* typo ([4479ed3](https://github.com/oplik0/solo2-gui/commit/4479ed37ad53ff68fd2da499400df06a0dc47897))
+
 # [1.0.0-alpha.9](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2022-09-21)
 
 
