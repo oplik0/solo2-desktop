@@ -1,3 +1,10 @@
+# [1.0.0-alpha.9](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2022-09-21)
+
+
+### Bug Fixes
+
+* use sha ([70933ce](https://github.com/oplik0/solo2-gui/commit/70933ce4d064f326891d49c2723a9a4043430108))
+
 # [1.0.0-alpha.8](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-09-21)
 
 
