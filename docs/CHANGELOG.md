@@ -1,3 +1,10 @@
+# [1.0.0-alpha.14](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2022-09-21)
+
+
+### Bug Fixes
+
+* remove pre-release on Windows ([c09950e](https://github.com/oplik0/solo2-gui/commit/c09950ee3fe12aec466bd7433b1b5b9fa126752b))
+
 # [1.0.0-alpha.13](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2022-09-21)
 
 
