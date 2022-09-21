@@ -1,3 +1,10 @@
+# [1.0.0-alpha.8](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-09-21)
+
+
+### Bug Fixes
+
+* **release:** use await ([2f1436f](https://github.com/oplik0/solo2-gui/commit/2f1436f66b43a809c35186c31a93e3de0a72369d))
+
 # [1.0.0-alpha.7](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-09-20)
 
 
