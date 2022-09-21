@@ -12,7 +12,7 @@
 	export let credential: string;
 	let code = "";
 	let display_code = false;
-	let timeLeft: number;
+	let timeLeft: number = 0;
 	setInterval(() => {
 		if (timeLeft > 0) timeLeft -= 50;
 	}, 50);
@@ -30,6 +30,7 @@
 		if (display_code) {
 			getCode();
 		} else {
+			timeLeft = 0;
 			code = "";
 		}
 	}
@@ -47,8 +48,11 @@
 			<TextBlock variant="caption" class="oathKeyId">({uuid})</TextBlock>
 		</a>
 	</div>
-	<button on:click={async () => await writeText(code)}>
-		<TextBlock variant="title" class="oath-code {!display_code ? 'hidden' : ''}"
+	<button
+		on:click={async () => await writeText(code)}
+		class={!display_code ? "hidden" : ""}
+	>
+		<TextBlock variant="title" class="oath-code"
 			>{code.substring(0, code.length / 2)}
 			{code.substring(code.length / 2)}</TextBlock
 		>
@@ -162,6 +166,9 @@
 		box-sizing: border-box;
 		gap: 6px;
 		line-height: 36px;
+	}
+	.hidden {
+		visibility: hidden;
 	}
 	:global(.hidden) {
 		visibility: hidden;
