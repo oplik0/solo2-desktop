@@ -113,7 +113,7 @@
 			changes color. Unplugging the before touching any buttons will cancel the
 			update</TextBlock
 		>
-		{#if major(latest_version) == major(key.version)}
+		{#if major(latest_version) !== major(key.version)}
 			<TextBlock variant="body"
 				><InfoBadge severity="caution">Warning</InfoBadge> This is is major update
 				and it could risk breaking any current credentials on your key.</TextBlock
