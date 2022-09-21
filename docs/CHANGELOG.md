@@ -1,3 +1,10 @@
+# [1.0.0-alpha.13](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2022-09-21)
+
+
+### Bug Fixes
+
+* fromJSON ([22eedc0](https://github.com/oplik0/solo2-gui/commit/22eedc0143159ce4c845c46858c62c35888cae25))
+
 # [1.0.0-alpha.12](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2022-09-21)
 
 
