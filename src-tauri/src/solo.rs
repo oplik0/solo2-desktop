@@ -3,6 +3,7 @@ use std::collections::BTreeMap;
 use memoize::memoize;
 use serde::{Serialize, Deserialize};
 use solo2::{Solo2, Version, Admin, Uuid, Select as _, UuidSelectable};
+use tauri::{command, State};
 use tokio::sync::{Mutex};
 
 #[derive(Serialize, Deserialize, Clone, Debug, Eq)]
@@ -56,4 +57,16 @@ pub fn get_secure_status(uuid: String) -> Option<bool> {
 	let mut device = Solo2::having(converted_uuid).unwrap();
 	let mut admin = Admin::select(&mut device).unwrap();
 	Some(admin.locked().unwrap())
+}
+
+#[command]
+pub async fn wink(uuid: String, state: State<'_, Solo2List>) -> Result<(), String> {
+	let _list = state.0.lock().await;
+	let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
+	let mut device = Solo2::having(converted_uuid).unwrap();
+	let mut admin = Admin::select(&mut device).unwrap();
+	match admin.wink() {
+		Ok(_) => Ok(()),
+		Err(e) => Err(e.to_string()),
+	}
 }

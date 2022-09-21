@@ -24,6 +24,9 @@
 		}
 		console.log("updated");
 	}
+	async function wink() {
+		await invoke("wink", { uuid: key.uuid });
+	}
 	function toCalver(version: string) {
 		const semver = parse(version);
 		if (semver !== null) {
@@ -83,6 +86,7 @@
 				>
 				<div>
 					<Button variant="hyperlink" href="/totp/{key.uuid}">TOTP</Button>
+					<Button variant="standard" on:click={wink}>Wink</Button>
 					<Button
 						variant={gt(latest_version, key.version) ? "accent" : "standard"}
 						on:click={() => {
