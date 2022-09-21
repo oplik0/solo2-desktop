@@ -41,7 +41,15 @@ jobs:
               repo: context.repo.repo,
               release_id: process.env.release_id,
             })
-            return `refs/tags/${data.tag_name}`
+            let sha;
+            await exec.exec("git", ["rev-parse", "-n1", data.tag_name], {
+              listeners: {
+                stdout: (data) => {
+                  sha += data.toString().trim();
+                },
+              },
+            });
+            return sha.trim();
 
   build-tauri:
     if: "!contains(github.event.head_commit.message, '[skip ci]') && needs.create-release.outputs.release_id"
