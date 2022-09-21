@@ -1,3 +1,10 @@
+# [1.0.0-alpha.16](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2022-09-21)
+
+
+### Features
+
+* improve TOTP registration styling ([72ad8bb](https://github.com/oplik0/solo2-gui/commit/72ad8bb5eec9213b82034508798163e754177124))
+
 # [1.0.0-alpha.15](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2022-09-21)
 
 
