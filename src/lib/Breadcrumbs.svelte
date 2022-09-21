@@ -40,13 +40,16 @@
 <style>
 	:global(.breadcrumb-text) {
 		text-transform: capitalize;
+		max-width: 30%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-decoration: none;
 	}
-	:global(.breadcrumb-text-next::before) {
-		content: url({});
-		height: 24px;
-		width: 24px;
-		position: relative;
-		left: -12px;
+	:global(.breadcrumb-text > a) {
+		text-transform: capitalize;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-decoration: none;
 	}
 	svg {
 		align-self: center;
@@ -56,12 +59,14 @@
 		flex-direction: row;
 		justify-content: flex-start;
 		flex: 1;
-		width: calc(100vw - 24px);
+		width: 100%;
 		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 24px;
 		gap: 6px;
+		grid-area: breadcrumbs;
+		padding: 0 12px;
 	}
 	a {
 		color: var(--fds-text-primary);

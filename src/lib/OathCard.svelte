@@ -40,10 +40,12 @@
 
 <section>
 	<div class="oath-credential-id-container">
-		<TextBlock variant="title" class="oath-credential-id"
-			>{credential}</TextBlock
-		>
-		<TextBlock variant="caption">({uuid})</TextBlock>
+		<TextBlock variant="subtitle" class="oath-credential-id">
+			{credential}
+		</TextBlock>
+		<a href="/totp/{uuid}">
+			<TextBlock variant="caption" class="oathKeyId">({uuid})</TextBlock>
+		</a>
 	</div>
 	<button on:click={async () => await writeText(code)}>
 		<TextBlock variant="title" class="oath-code {!display_code ? 'hidden' : ''}"
@@ -111,6 +113,9 @@
 </section>
 
 <style>
+	a {
+		color: var(--fds-card-text-default);
+	}
 	button {
 		background: none;
 		border: none;
@@ -119,6 +124,8 @@
 		color: var(--fds-card-text-default);
 		cursor: pointer;
 		opacity: 1;
+		width: min-content;
+		max-width: max-content;
 	}
 	button:active {
 		opacity: 0.8;
@@ -126,16 +133,19 @@
 	:global(.oath-credential-id) {
 		justify-self: flex-start;
 		flex-grow: 8;
+		text-align: left;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	:global(.oath-code) {
-		width: 100%;
+		width: max-content;
 		text-align: right;
 	}
 	section {
 		display: grid;
-		grid-template-columns: 1fr minmax(100px, max-content) min-content min-content min-content;
+		grid-template-columns: 1fr minmax(100px, max-content) 32px 32px 32px;
 		flex-direction: row;
-		justify-content: center;
+		justify-content: left;
 		align-items: center;
 		flex: 1;
 		border: 1px solid var(--fds-card-stroke-default);
@@ -150,7 +160,8 @@
 		margin-left: auto;
 		margin-right: auto;
 		box-sizing: border-box;
-		gap: 12px;
+		gap: 6px;
+		line-height: 36px;
 	}
 	:global(.hidden) {
 		visibility: hidden;
@@ -158,9 +169,17 @@
 	.oath-credential-id-container {
 		justify-self: flex-start;
 		display: flex;
-		flex-direction: row;
-		align-items: center;
+		flex-direction: column;
+		align-items: flex-start;
 		justify-content: flex-start;
-		gap: 12px;
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin: -24px 0;
+	}
+	:global(.oathKeyId) {
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: "...)";
 	}
 </style>

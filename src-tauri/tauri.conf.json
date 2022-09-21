@@ -83,7 +83,7 @@
 			{
 				"title": "Solo2 Desktop",
 				"width": 800,
-				"height": 800,
+				"height": 600,
 				"resizable": true,
 				"fullscreen": false,
 				"label": "main",

@@ -67,7 +67,7 @@
 			{/if}
 		</svg>
 		<div class="expander-title">
-			<TextBlock variant="subtitle">{key.uuid}</TextBlock>
+			<TextBlock variant="bodyLarge" class="keyId">{key.uuid}</TextBlock>
 			<TextBlock variant="caption">v{toCalver(key.version)}</TextBlock>
 			{#if gt(latest_version, key.version)}
 				<InfoBadge severity="attention" class="new-version-badge"
@@ -142,7 +142,7 @@
 
 <style>
 	section {
-		width: calc(100vw - 24px);
+		width: 100%;
 		max-width: 1200px;
 	}
 	.expanded-content {
@@ -157,5 +157,10 @@
 		align-items: center;
 		justify-content: space-between;
 		vertical-align: baseline;
+	}
+	:global(.keyId) {
+		max-width: 80%;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 </style>

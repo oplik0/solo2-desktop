@@ -42,7 +42,7 @@
 	>
 	<ContentDialog {open} class="register-dialog">
 		{#if uuid.length > 1}
-			<TextBlock variant="title">Register a new TOTP credential</TextBlock>
+			<TextBlock variant="subtitle">Register a new TOTP credential</TextBlock>
 			<ComboBox
 				items={[...new Set(uuid)].map((uuid) => ({ name: uuid, value: uuid }))}
 				bind:value={selected_uuid}
