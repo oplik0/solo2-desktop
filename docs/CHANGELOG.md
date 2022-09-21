@@ -1,3 +1,15 @@
+# [1.0.0-alpha.15](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2022-09-21)
+
+
+### Bug Fixes
+
+* warn when major is different, not the same ([6d9207a](https://github.com/oplik0/solo2-gui/commit/6d9207ad76dd27fa58871d68920a8e6dcd1e8bb5))
+
+
+### Features
+
+* add side menu ([2671ae8](https://github.com/oplik0/solo2-gui/commit/2671ae862a5f526b173114f59ca361b626a3e1a9))
+
 # [1.0.0-alpha.14](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2022-09-21)
 
 
