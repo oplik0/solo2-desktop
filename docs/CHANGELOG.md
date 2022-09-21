@@ -1,3 +1,10 @@
+# [1.0.0-alpha.11](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-09-21)
+
+
+### Bug Fixes
+
+* simplify get-ref code ([0d3824c](https://github.com/oplik0/solo2-gui/commit/0d3824cab0780d80742b56560815cc3d1fd08f6e))
+
 # [1.0.0-alpha.10](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-09-21)
 
 
