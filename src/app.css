@@ -14,6 +14,7 @@
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+	scrollbar-width: thin;
 }
 
 body {
@@ -22,6 +23,7 @@ body {
 	background: transparent;
 	box-sizing: border-box;
 	max-width: 100vw;
+	scrollbar-width: thin;
 }
 #svelte {
 	display: grid;
@@ -62,4 +64,24 @@ pre {
 iframe {
 	outline: none;
 	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	display: block;
+}
+::-webkit-scrollbar-track:hover {
+	background: var(--fds-card-background-default);
+	border-radius: 15px;
+}
+::-webkit-scrollbar-thumb {
+	background-clip: content-box;
+	border: 4px solid transparent;
+	background-color: var(--fds-text-tertiary);
+	border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+	border: 3px solid transparent;
+	background-clip: content-box;
+	border-radius: 10px;
 }

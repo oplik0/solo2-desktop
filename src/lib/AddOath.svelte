@@ -11,7 +11,7 @@
 	} from "fluent-svelte";
 	import { invoke } from "@tauri-apps/api/tauri";
 	export let uuid: string[];
-	let selected_uuid: string = uuid[0];
+	let selected_uuid: string;
 	let open = false;
 	let label: string;
 	let issuer: string;
@@ -33,57 +33,68 @@
 		});
 		open = false;
 	}
+	function openDialog() {
+		open = !open;
+		selected_uuid = selected_uuid ?? uuid[0];
+	}
 </script>
 
 <section>
 	<TextBlock variant="subtitle">Register a new TOTP credential</TextBlock>
-	<Button variant="accent" on:click={() => (open = !open)}
-		>Add crededntial</Button
-	>
+	<Button variant="accent" on:click={openDialog}>Add crededntial</Button>
 	<ContentDialog {open} class="register-dialog">
-		{#if uuid.length > 1}
+		<div class="dialog-title">
 			<TextBlock variant="subtitle">Register a new TOTP credential</TextBlock>
-			<ComboBox
-				items={[...new Set(uuid)].map((uuid) => ({ name: uuid, value: uuid }))}
-				bind:value={selected_uuid}
-			/>
-		{:else}
-			<TextBlock variant="title">Register a new TOTP credential</TextBlock>
-		{/if}
-		<fieldset>
-			<TextBlock>Label</TextBlock>
-			<TextBox bind:value={label} type="text" placeholder="label" />
-		</fieldset>
-		<fieldset>
-			<TextBlock>Issuer (optional)</TextBlock>
-			<TextBox bind:value={issuer} type="text" />
-		</fieldset>
-		<fieldset>
-			<TextBlock>TOTP Secret</TextBlock>
-			<TextBox bind:value={secret} type="text" />
-		</fieldset>
-		<Expander>
-			<TextBlock>Advanced</TextBlock>
-			<svelte:fragment slot="content">
+		</div>
+		<form>
+			{#if uuid.length > 1}
 				<fieldset>
-					<TextBlock>Algorithm</TextBlock>
-					<div class="radio">
-						<RadioButton bind:group={algorithm} value="sha1">SHA1</RadioButton>
-						<RadioButton bind:group={algorithm} value="sha256"
-							>SHA256</RadioButton
-						>
-					</div>
+					<TextBlock>Key</TextBlock>
+					<ComboBox
+						items={[...new Set(uuid)].map((uuid) => ({
+							name: uuid,
+							value: uuid,
+						}))}
+						bind:value={selected_uuid}
+					/>
 				</fieldset>
-				<fieldset>
-					<TextBlock>TOTP Period</TextBlock>
-					<TextBox bind:value={period} type="number" placeholder="30" />
-				</fieldset>
-				<fieldset>
-					<TextBlock>Digits</TextBlock>
-					<TextBox bind:value={digits} type="number" placeholder="6" />
-				</fieldset>
-			</svelte:fragment>
-		</Expander>
+			{/if}
+			<fieldset>
+				<TextBlock>Label</TextBlock>
+				<TextBox bind:value={label} type="text" placeholder="label" />
+			</fieldset>
+			<fieldset>
+				<TextBlock>Issuer (optional)</TextBlock>
+				<TextBox bind:value={issuer} type="text" />
+			</fieldset>
+			<fieldset>
+				<TextBlock>TOTP Secret</TextBlock>
+				<TextBox bind:value={secret} type="text" />
+			</fieldset>
+			<Expander class="addTotpExpander">
+				<TextBlock>Advanced</TextBlock>
+				<svelte:fragment slot="content">
+					<fieldset>
+						<TextBlock>Algorithm</TextBlock>
+						<div class="radio">
+							<RadioButton bind:group={algorithm} value="sha1">SHA1</RadioButton
+							>
+							<RadioButton bind:group={algorithm} value="sha256"
+								>SHA256</RadioButton
+							>
+						</div>
+					</fieldset>
+					<fieldset>
+						<TextBlock>TOTP Period</TextBlock>
+						<TextBox bind:value={period} type="number" placeholder="30" />
+					</fieldset>
+					<fieldset>
+						<TextBlock>Digits</TextBlock>
+						<TextBox bind:value={digits} type="number" placeholder="6" />
+					</fieldset>
+				</svelte:fragment>
+			</Expander>
+		</form>
 		<svelte:fragment slot="footer">
 			<Button
 				slot="footer"
@@ -117,10 +128,39 @@
 		box-sizing: border-box;
 		gap: 12px;
 	}
-	:global(.register-dialog > div) {
+	:global(.register-dialog > .content-dialog-body > form) {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 12px;
+		overflow-y: scroll;
+		padding: 12px;
+	}
+	:global(.register-dialog > .content-dialog-body) {
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
+		overflow-y: hidden;
+		max-height: 90%;
+		padding: 0;
+	}
+	.dialog-title {
+		display: block;
+		padding: 12px 24px 0;
+		position: sticky;
+	}
+	:global(.register-dialog > .content-dialog-footer) {
+		box-sizing: border-box;
+		min-height: 50px;
+	}
+	:global(.register-dialog) {
+		max-height: 80vh;
+		display: flex;
+		flex-direction: column;
+	}
+	:global(.addTotpExpander) {
+		padding: 0 10px;
+		box-sizing: border-box;
 	}
 	fieldset {
 		display: flex;
