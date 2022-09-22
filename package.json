@@ -6,6 +6,7 @@
 		"email": "opliko.reg@protonmail.com",
 		"url": "https://github.com/oplik0/"
 	},
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -13,10 +14,13 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint .",
-		"semantic-release": "semantic-release"
+		"semantic-release": "semantic-release",
+		"prepare": "husky install"
 	},
 	"devDependencies": {
 		"@actions/core": "^1.9.1",
+		"@commitlint/cli": "^17.1.2",
+		"@commitlint/config-conventional": "^17.1.0",
 		"@opliko/semantic-release-github": "0.0.1",
 		"@semantic-release/changelog": "^6.0.1",
 		"@semantic-release/commit-analyzer": "^9.0.2",
@@ -36,6 +40,8 @@
 		"eslint": "^8.16.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"fluent-svelte": "^1.6.0",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.3",
 		"semantic-release": "^19.0.5",
 		"svelte": "^3.46.0",
 		"svelte-check": "^2.7.1",
@@ -54,5 +60,13 @@
 		"type": "git",
 		"url": "https://github.com/oplik0/solo2-gui.git"
 	},
-	"packageManager": "pnpm@7.12.1"
+	"packageManager": "pnpm@7.12.1",
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx,cjs,mjs,json,md,toml,svelte}": "dprint fmt"
+	}
 }
