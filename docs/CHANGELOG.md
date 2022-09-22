@@ -1,3 +1,18 @@
+# [1.0.0-alpha.19](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.18...v1.0.0-alpha.19) (2022-09-22)
+
+
+### Bug Fixes
+
+* sometimes the expander could get stuck when quickly opening/closing it ([c12250b](https://github.com/oplik0/solo2-gui/commit/c12250bb06d1da056c10ce8ed6e32db4ea2a4b1c))
+* **ui:** correct calver format to one used by solokeys ([b69874f](https://github.com/oplik0/solo2-gui/commit/b69874fed9551d9bd250b8208b7a7a90b331968a))
+
+
+### Features
+
+* rename OathCard to TotpCard to prepare for hotp ([814b840](https://github.com/oplik0/solo2-gui/commit/814b8401db96e7405af899ddc96a4836dedf477e))
+* **ui:** add tooltip to selected file button ([596dadb](https://github.com/oplik0/solo2-gui/commit/596dadb634ef4ad187852ceba74430e7a750531f))
+* **update:** upload firmware from files ([fb5394e](https://github.com/oplik0/solo2-gui/commit/fb5394e7d8c9d07bb8921feea76846dcb7fbfc62)), closes [#8](https://github.com/oplik0/solo2-gui/issues/8)
+
 # [1.0.0-alpha.18](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.17...v1.0.0-alpha.18) (2022-09-22)
 
 
