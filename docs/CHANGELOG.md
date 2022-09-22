@@ -1,3 +1,10 @@
+# [1.0.0-alpha.18](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.17...v1.0.0-alpha.18) (2022-09-22)
+
+
+### Features
+
+* basic diagnostics/maintenance ([913dd71](https://github.com/oplik0/solo2-gui/commit/913dd71e23f09d35fe4a628495b6db70877507f0)), closes [#4](https://github.com/oplik0/solo2-gui/issues/4)
+
 # [1.0.0-alpha.17](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.16...v1.0.0-alpha.17) (2022-09-21)
 
 
