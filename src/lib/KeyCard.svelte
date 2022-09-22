@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { invoke } from "@tauri-apps/api/tauri";
+	import { open } from "@tauri-apps/api/dialog";
 	import {
 		Button,
 		Expander,
@@ -19,10 +20,14 @@
 	let dialogOpen = false;
 	let updating = false;
 	let expanding = false;
+	let selected_file: string | undefined;
 	async function update() {
 		updating = true;
 		try {
-			await invoke("update_key", { uuid: key.uuid });
+			await invoke("update_key", {
+				uuid: key.uuid,
+				file: selected_file,
+			});
 		} finally {
 			updating = false;
 		}
@@ -37,6 +42,19 @@
 	async function maintenance() {
 		await invoke("maintenance", { uuid: key.uuid });
 	}
+
+	async function upload_firmware() {
+		const selected = await open({
+			multiple: false,
+			title: "Select Firmware File",
+			filters: [{ extensions: ["sb2"], name: "Firmware" }],
+		});
+		if (Array.isArray(selected)) selected_file = selected[0];
+		else if (typeof selected === "string") selected_file = selected;
+		else selected_file = undefined;
+		console.log(selected_file);
+	}
+
 	function toCalver(version: string) {
 		const semver = parse(version);
 		if (semver !== null) {
@@ -128,8 +146,25 @@
 				>
 				<div>
 					<Button variant="hyperlink" href="/totp/{key.uuid}">TOTP</Button>
+					<IconButton on:click={upload_firmware}>
+						<svg
+							width="16"
+							height="16"
+							fill="none"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								class:selected_file={selected_file?.length}
+								d="M5.25 3.495h13.498a.75.75 0 0 0 .101-1.493l-.101-.007H5.25a.75.75 0 0 0-.102 1.493l.102.007Zm6.633 18.498L12 22a1 1 0 0 0 .993-.884L13 21V8.41l3.294 3.292a1 1 0 0 0 1.32.083l.094-.083a1 1 0 0 0 .083-1.32l-.083-.094-4.997-4.997a1 1 0 0 0-1.32-.083l-.094.083-5.004 4.996a1 1 0 0 0 1.32 1.499l.094-.083L11 8.415V21a1 1 0 0 0 .883.993Z"
+								fill="currentColor"
+							/>
+						</svg>
+					</IconButton>
 					<Button
-						variant={gt(latest_version, key.version) ? "accent" : "standard"}
+						variant={gt(latest_version, key.version) || selected_file?.length
+							? "accent"
+							: "standard"}
 						on:click={() => {
 							dialogOpen = true;
 						}}
@@ -276,5 +311,8 @@
 	}
 	:global(.overflow-visible > .expander-content-anchor) {
 		overflow: visible !important;
+	}
+	.selected_file {
+		fill: var(--fds-accent-default);
 	}
 </style>
