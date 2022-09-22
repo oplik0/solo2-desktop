@@ -11,6 +11,7 @@
 		MenuFlyout,
 		MenuFlyoutItem,
 		IconButton,
+		Tooltip,
 	} from "fluent-svelte";
 	import { parse, gt, major } from "semver";
 	import type { Solo2 } from "src/types";
@@ -146,20 +147,28 @@
 				>
 				<div>
 					<Button variant="hyperlink" href="/totp/{key.uuid}">TOTP</Button>
+
 					<IconButton on:click={upload_firmware}>
-						<svg
-							width="16"
-							height="16"
-							fill="none"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
+						<Tooltip
+							text={selected_file}
+							placement="bottom"
+							delay={selected_file?.length ? 200 : 2147483647}
+							offset={6}
 						>
-							<path
-								class:selected_file={selected_file?.length}
-								d="M5.25 3.495h13.498a.75.75 0 0 0 .101-1.493l-.101-.007H5.25a.75.75 0 0 0-.102 1.493l.102.007Zm6.633 18.498L12 22a1 1 0 0 0 .993-.884L13 21V8.41l3.294 3.292a1 1 0 0 0 1.32.083l.094-.083a1 1 0 0 0 .083-1.32l-.083-.094-4.997-4.997a1 1 0 0 0-1.32-.083l-.094.083-5.004 4.996a1 1 0 0 0 1.32 1.499l.094-.083L11 8.415V21a1 1 0 0 0 .883.993Z"
-								fill="currentColor"
-							/>
-						</svg>
+							<svg
+								width="16"
+								height="16"
+								fill="none"
+								viewBox="0 0 24 24"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									class:selected_file={selected_file?.length}
+									d="M5.25 3.495h13.498a.75.75 0 0 0 .101-1.493l-.101-.007H5.25a.75.75 0 0 0-.102 1.493l.102.007Zm6.633 18.498L12 22a1 1 0 0 0 .993-.884L13 21V8.41l3.294 3.292a1 1 0 0 0 1.32.083l.094-.083a1 1 0 0 0 .083-1.32l-.083-.094-4.997-4.997a1 1 0 0 0-1.32-.083l-.094.083-5.004 4.996a1 1 0 0 0 1.32 1.499l.094-.083L11 8.415V21a1 1 0 0 0 .883.993Z"
+									fill="currentColor"
+								/>
+							</svg>
+						</Tooltip>
 					</IconButton>
 					<Button
 						variant={gt(latest_version, key.version) || selected_file?.length
