@@ -9,7 +9,7 @@ An unofficial desktop application for managing and interacting with your SoloKey
 - [x] Automatically checking for new key updates (currently the app sends a request every 15 minutes)
 - [x] Listing and managing TOTP credentials stored on keys
 - [x] Generating TOTP codes
-- [ ] Basic device diagnostics (wink, reboot to bootloader)
+- [x] Basic device diagnostics (wink, reboot to bootloader)
 - [ ] HOTP
 - [ ] Managing Discoverable Credentials
 - [ ] Change pin
@@ -29,7 +29,7 @@ pnpm dev
 
 ## Building
 
-To build a production version of your app:
+To build a production version of the app:
 
 ```bash
 pnpm tauri build
