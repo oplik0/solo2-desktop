@@ -67,7 +67,7 @@
 			const formatted_date = Object.fromEntries(
 				formatter.formatToParts(date).map((x) => [x.type, x.value])
 			);
-			return `${semver.major}:${formatted_date.year}${formatted_date.month}${formatted_date.day}:${semver.patch}`;
+			return `${semver.major}:${formatted_date.year}${formatted_date.month}${formatted_date.day}.${semver.patch}`;
 		}
 
 		return "Invalid version";
