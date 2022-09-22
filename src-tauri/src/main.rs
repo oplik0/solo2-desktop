@@ -43,6 +43,8 @@ fn main() {
 			oath::register_oath,
 			oath::delete_oath,
 			solo::wink,
+			solo::reboot,
+			solo::maintenance,
 		])
 		.run(tauri::generate_context!())
 		.expect("error while running tauri application");

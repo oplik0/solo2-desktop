@@ -70,3 +70,25 @@ pub async fn wink(uuid: String, state: State<'_, Solo2List>) -> Result<(), Strin
 		Err(e) => Err(e.to_string()),
 	}
 }
+#[command]
+pub async fn reboot(uuid: String, state: State<'_, Solo2List>) -> Result<(), String> {
+	let _list = state.0.lock().await;
+	let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
+	let mut device = Solo2::having(converted_uuid).unwrap();
+	let mut admin = Admin::select(&mut device).unwrap();
+	match admin.reboot() {
+		Ok(_) => Ok(()),
+		Err(e) => Err(e.to_string()),
+	}
+}
+#[command]
+pub async fn maintenance(uuid: String, state: State<'_, Solo2List>) -> Result<(), String> {
+	let _list = state.0.lock().await;
+	let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
+	let mut device = Solo2::having(converted_uuid).unwrap();
+	let mut admin = Admin::select(&mut device).unwrap();
+	match admin.maintenance(){
+		Ok(_) => Ok(()),
+		Err(e) => Err(e.to_string()),
+	}
+}
