@@ -4,16 +4,18 @@ An unofficial desktop application for managing and interacting with your SoloKey
 
 ## Features
 
+Current scope of the app (checked items are already done):
+
 - [x] List of plugged in keys with basic information about them (UUID, version, secure/hacker)
 - [x] Updating keys
 - [x] Automatically checking for new key updates (currently the app sends a request every 15 minutes)
 - [x] Listing and managing TOTP credentials stored on keys
 - [x] Generating TOTP codes
 - [x] Basic device diagnostics (wink, reboot to bootloader)
+- [x] Upload firmware from a file
 - [ ] HOTP
 - [ ] Managing Discoverable Credentials
 - [ ] Change pin
-- [ ] Upload firmware from a file
 - [ ] Actually decent UX
 
 ## Developing
