@@ -18,6 +18,7 @@
 	export let latest_version = "0.0.0";
 	let dialogOpen = false;
 	let updating = false;
+	let expanding = false;
 	async function update() {
 		updating = true;
 		try {
@@ -54,6 +55,7 @@
 		return "Invalid version";
 	}
 	function expand() {
+		expanding = true;
 		setTimeout(
 			() =>
 				document
@@ -63,6 +65,16 @@
 		);
 	}
 	function collapse() {
+		if (expanding) {
+			expanding = false;
+			setTimeout(
+				() =>
+					document
+						.querySelector(`#expander-${key.uuid}`)
+						?.classList.remove("overflow-visible"),
+				250
+			);
+		}
 		document
 			.querySelector(`#expander-${key.uuid}`)
 			?.classList.remove("overflow-visible");
