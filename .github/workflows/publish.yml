@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_id: ${{ steps.semantic-release.outputs.release_id }}
-      release_ref: ${{ fromJSON(steps.get-ref.outputs.result || '') }}
+      release_ref: ${{ steps.get-ref.outputs.result }}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -90,7 +90,7 @@ jobs:
           TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
           TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
         with:
-          releaseId: ${{ needs.create-release.outputs.release_id }}
+          releaseId: ${{ fromJSON(needs.create-release.outputs.release_id) }}
           tauriScript: pnpm tauri
 
   publish-release:
@@ -103,7 +103,7 @@ jobs:
         id: publish-release
         uses: actions/github-script@v6
         env:
-          release_id: ${{ needs.create-release.outputs.release_id }}
+          release_id: ${{ fromJSON(needs.create-release.outputs.release_id) }}
         with:
           script: |
             github.rest.repos.updateRelease({
