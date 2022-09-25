@@ -1,4 +1,5 @@
 export interface Solo2 {
+	name?: string;
 	uuid: string;
 	version: string;
 	secure?: boolean;

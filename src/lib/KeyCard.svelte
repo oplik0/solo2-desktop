@@ -12,9 +12,11 @@
 		MenuFlyoutItem,
 		IconButton,
 		Tooltip,
+		TextBox,
 	} from "fluent-svelte";
 	import { parse, gt, major } from "semver";
 	import type { Solo2 } from "src/types";
+	import { saveKeyName } from "$lib/keyName";
 
 	export let key: Solo2;
 	export let latest_version = "0.0.0";
@@ -22,6 +24,8 @@
 	let updating = false;
 	let expanding = false;
 	let selected_file: string | undefined;
+	let keyName = key.name ?? key.uuid;
+	let editingKeyName = false;
 	async function update() {
 		updating = true;
 		try {
@@ -131,7 +135,28 @@
 			{/if}
 		</svg>
 		<div class="expander-title">
-			<TextBlock variant="bodyLarge" class="keyId">{key.uuid}</TextBlock>
+			<div class="keyNameBlock">
+				{#if !editingKeyName}
+					<TextBlock variant="bodyLarge" class="keyId">
+						{key.name ?? key.uuid}
+					</TextBlock>
+					<IconButton on:click={() => (editingKeyName = true)}>
+						<!-- TODO: add a fluent icon for editing content -->
+					</IconButton>
+				{:else}
+					<!-- TODO: accept on enter -->
+					<TextBox bind:value={keyName} placeholder={key.uuid} />
+					<IconButton
+						on:click={async () => {
+							await saveKeyName(key.uuid, keyName);
+							editingKeyName = false;
+						}}
+					>
+						<!-- TODO: add a fluent save icon -->
+					</IconButton>
+				{/if}
+			</div>
+
 			<TextBlock variant="caption">v{toCalver(key.version)}</TextBlock>
 			{#if gt(latest_version, key.version)}
 				<InfoBadge severity="attention" class="new-version-badge"
@@ -141,6 +166,9 @@
 		</div>
 		<svelte:fragment slot="content">
 			<div class="expanded-content">
+				{#if key.name}
+					<TextBlock variant="bodyStrong">uuid: {key.uuid}</TextBlock>
+				{/if}
 				<TextBlock variant="bodyStrong">semver: v{key.version}</TextBlock>
 				<TextBlock variant="bodyStrong"
 					>variant: {key.secure ? "secure" : "hacker"}</TextBlock
