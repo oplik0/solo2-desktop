@@ -38,5 +38,6 @@
 		grid-column-end: 2;
 		width: 100%;
 		grid-area: nav;
+		margin: 12px;
 	}
 </style>
