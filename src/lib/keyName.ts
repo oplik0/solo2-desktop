@@ -1,14 +1,14 @@
 import type { Solo2, Solo2List } from "src/types";
+import { Store } from "tauri-plugin-store-api";
 
-// TODO: use tauri store plugin once I have wifi
-const names: Record<string, string> = {};
+const names = new Store("keynames.dat");
 
 export async function loadKeyName(uuid: string): Promise<string> {
-	return names[uuid];
+	return await names.get(uuid) ?? uuid;
 }
 
 export async function saveKeyName(uuid: string, name: string): Promise<void> {
-	names[uuid] = name;
+	await names.set(uuid, name);
 }
 
 export async function addNamesToKeys(keys: Solo2List) {
