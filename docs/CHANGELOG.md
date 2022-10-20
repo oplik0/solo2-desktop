@@ -1,3 +1,10 @@
+# [1.0.0-alpha.21](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.20...v1.0.0-alpha.21) (2022-10-20)
+
+
+### Bug Fixes
+
+* **ci:** use fromJSON ([989d520](https://github.com/oplik0/solo2-gui/commit/989d520bd8a3a8a910659bebb4f7876ca5b46be9))
+
 # [1.0.0-alpha.20](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.19...v1.0.0-alpha.20) (2022-10-20)
 
 
