@@ -42,15 +42,6 @@ impl PartialEq for Solo2Info {
 }
 pub struct Solo2List(pub Mutex<BTreeMap<String, Solo2Info>>);
 
-// impl Solo2List {
-// 	pub fn new() {
-// 		Solo2List{
-// 			list: Mutex::new(BTreeMap::new())
-// 		};
-// 	}
-	
-// }
-
 #[memoize]
 pub fn get_secure_status(uuid: String) -> Option<bool> {
 	let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());

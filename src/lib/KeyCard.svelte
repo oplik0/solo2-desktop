@@ -12,9 +12,11 @@
 		MenuFlyoutItem,
 		IconButton,
 		Tooltip,
+		TextBox,
 	} from "fluent-svelte";
 	import { parse, gt, major } from "semver";
 	import type { Solo2 } from "src/types";
+	import { saveKeyName } from "$lib/keyName";
 
 	export let key: Solo2;
 	export let latest_version = "0.0.0";
@@ -22,6 +24,8 @@
 	let updating = false;
 	let expanding = false;
 	let selected_file: string | undefined;
+	let keyName = key.name ?? key.uuid;
+	let editingKeyName = false;
 	async function update() {
 		updating = true;
 		try {
@@ -131,7 +135,26 @@
 			{/if}
 		</svg>
 		<div class="expander-title">
-			<TextBlock variant="bodyLarge" class="keyId">{key.uuid}</TextBlock>
+			<div class="keyNameBlock">
+				<TextBlock variant="bodyLarge" class="keyId">
+					{key.name ?? key.uuid}
+				</TextBlock>
+				<IconButton on:click={(e) => (editingKeyName = true)}>
+					<svg
+						width="24"
+						height="24"
+						fill="none"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M13.94 5 19 10.06 9.062 20a2.25 2.25 0 0 1-.999.58l-5.116 1.395a.75.75 0 0 1-.92-.921l1.395-5.116a2.25 2.25 0 0 1 .58-.999L13.938 5Zm7.09-2.03a3.578 3.578 0 0 1 0 5.06l-.97.97L15 3.94l.97-.97a3.578 3.578 0 0 1 5.06 0Z"
+							fill="currentColor"
+						/>
+					</svg>
+				</IconButton>
+			</div>
+
 			<TextBlock variant="caption">v{toCalver(key.version)}</TextBlock>
 			{#if gt(latest_version, key.version)}
 				<InfoBadge severity="attention" class="new-version-badge"
@@ -141,6 +164,9 @@
 		</div>
 		<svelte:fragment slot="content">
 			<div class="expanded-content">
+				{#if key.name}
+					<TextBlock variant="bodyStrong">uuid: {key.uuid}</TextBlock>
+				{/if}
 				<TextBlock variant="bodyStrong">semver: v{key.version}</TextBlock>
 				<TextBlock variant="bodyStrong"
 					>variant: {key.secure ? "secure" : "hacker"}</TextBlock
@@ -290,6 +316,27 @@
 			>
 		</svelte:fragment>
 	</ContentDialog>
+	<ContentDialog bind:open={editingKeyName} title="Edit your key name">
+		<TextBlock variant="body">Enter a new name for your key</TextBlock>
+		<TextBlock
+			><InfoBadge severity="information" /> note: this is local to the application,
+			the name will not be carried with the key</TextBlock
+		>
+		<TextBox bind:value={key.name} placeholder={key.name} />
+		<svelte:fragment slot="footer">
+			<Button slot="footer" on:click={() => (editingKeyName = false)}
+				>Cancel</Button
+			>
+			<Button
+				slot="footer"
+				variant="accent"
+				on:click={async () => {
+					if (key.name) await saveKeyName(key.uuid, key.name);
+					editingKeyName = false;
+				}}>Save</Button
+			>
+		</svelte:fragment>
+	</ContentDialog>
 </section>
 
 <style>
@@ -308,12 +355,13 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		vertical-align: baseline;
+		vertical-align: sub;
 	}
 	:global(.keyId) {
 		max-width: 80%;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		vertical-align: sub;
 	}
 	:global(.overflow-visible) {
 		overflow: visible !important;

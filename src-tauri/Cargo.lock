@@ -3713,6 +3713,7 @@ dependencies = [
  "solo2",
  "tauri",
  "tauri-build",
+ "tauri-plugin-store",
  "tokio",
  "ureq",
  "usb_enumeration",
@@ -4048,6 +4049,18 @@ dependencies = [
  "syn",
  "tauri-codegen",
  "tauri-utils",
+]
+
+[[package]]
+name = "tauri-plugin-store"
+version = "0.0.0"
+source = "git+https://github.com/tauri-apps/tauri-plugin-store?branch=dev#4326f75446b8b9e0cb9904c65f258b81e23e544e"
+dependencies = [
+ "log",
+ "serde",
+ "serde_json",
+ "tauri",
+ "thiserror",
 ]
 
 [[package]]

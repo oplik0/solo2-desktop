@@ -11,11 +11,11 @@
 </script>
 
 <header>
-	<TextBlock variant="title" class="breadcrumb-text"
+	<TextBlock variant="title" class="breadcrumb-text {$page.url?.pathname === "/" ? "current-link" : ""}"
 		><a href="/">Key List</a></TextBlock
 	>
 
-	{#each $page.url?.pathname?.split("/")?.slice(1) ?? [] as breadcrumb}
+	{#each Object.entries($page.url?.pathname?.split("/")?.slice(1) ?? []) as [i, breadcrumb]}
 		{#if breadcrumb.length > 0}
 			<svg
 				width="16"
@@ -28,7 +28,7 @@
 					d="M8.293 4.293a1 1 0 0 0 0 1.414L14.586 12l-6.293 6.293a1 1 0 1 0 1.414 1.414l7-7a1 1 0 0 0 0-1.414l-7-7a1 1 0 0 0-1.414 0Z"
 				/>
 			</svg>
-			<TextBlock variant="title" class="breadcrumb-text breadcrumb-text-next">
+			<TextBlock variant="title" class="breadcrumb-text breadcrumb-text-next {$page.url?.pathname?.split("/").length - 2 === parseInt(i, 10) ? "current-link" : ""}" >
 				<a href={extractRoute($page?.url?.pathname, breadcrumb)}>
 					{breadcrumb}
 				</a>
@@ -69,9 +69,15 @@
 		padding: 0 12px;
 	}
 	a {
-		color: var(--fds-text-primary);
+		color: var(--fds-text-secondary);
+		cursor: default;
 	}
 	a:hover {
 		text-decoration: none;
+		color: var(--fds-text-primary);
+		cursor: default;
+	}
+	:global(.current-link > a) {
+		color: var(--fds-text-primary);
 	}
 </style>
