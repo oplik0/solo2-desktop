@@ -1,3 +1,10 @@
+# [1.0.0-alpha.22](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.21...v1.0.0-alpha.22) (2022-10-20)
+
+
+### Bug Fixes
+
+* add prerender entries ([1307b85](https://github.com/oplik0/solo2-gui/commit/1307b850363051662f3c82a604d5e9fe3ce32406))
+
 # [1.0.0-alpha.21](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.20...v1.0.0-alpha.21) (2022-10-20)
 
 
