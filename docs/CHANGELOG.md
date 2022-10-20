@@ -1,3 +1,14 @@
+# [1.0.0-alpha.20](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.19...v1.0.0-alpha.20) (2022-10-20)
+
+
+### Features
+
+* add key names to TOTP ([9fd9c88](https://github.com/oplik0/solo2-gui/commit/9fd9c88c62a5718cf2960b081b005e7b6c4d6d06))
+* small UI improvements ([fe5199f](https://github.com/oplik0/solo2-gui/commit/fe5199f697eaed9b9f7cc1644e5537249e90ea79))
+* start on a basic key naming implementation without a store yet ([a15a87e](https://github.com/oplik0/solo2-gui/commit/a15a87e6cdc77f213f3fc6c2bf30f9195f22b57a))
+* use tauri-plugin-store ([9104529](https://github.com/oplik0/solo2-gui/commit/9104529bad7c1fe76e730461c8aa4fb85b28f5eb))
+* working key name change ([20dedd0](https://github.com/oplik0/solo2-gui/commit/20dedd0d4150926d01672a18a87141b5c47f9dbd))
+
 # [1.0.0-alpha.19](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.18...v1.0.0-alpha.19) (2022-09-22)
 
 
