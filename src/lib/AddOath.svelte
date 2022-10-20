@@ -10,6 +10,8 @@
 		RadioButton,
 	} from "fluent-svelte";
 	import { invoke } from "@tauri-apps/api/tauri";
+	import { onMount } from "svelte";
+	import { loadKeyName } from "./keyName";
 	export let uuid: string[];
 	let selected_uuid: string;
 	let open = false;
@@ -20,6 +22,12 @@
 	let algorithm: "sha1" | "sha256" = "sha1";
 	let period = 30;
 	let digits = 6;
+	let keyNames: Record<string, string> = {};
+	onMount(async () => {
+		for (const id of uuid) {
+			keyNames[id] = await loadKeyName(id);
+		}
+	});
 	async function registerOath() {
 		await invoke("register_oath", {
 			uuid: selected_uuid,
@@ -52,7 +60,7 @@
 					<TextBlock>Key</TextBlock>
 					<ComboBox
 						items={[...new Set(uuid)].map((uuid) => ({
-							name: uuid,
+							name: keyNames[uuid] ?? uuid,
 							value: uuid,
 						}))}
 						bind:value={selected_uuid}

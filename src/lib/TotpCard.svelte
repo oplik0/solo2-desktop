@@ -8,14 +8,21 @@
 	} from "fluent-svelte";
 	import { invoke } from "@tauri-apps/api/tauri";
 	import { writeText } from "@tauri-apps/api/clipboard";
+	import { loadKeyName } from "./keyName";
+	import { onMount } from "svelte";
 	export let uuid: string;
 	export let credential: string;
 	let code = "";
 	let display_code = false;
 	let timeLeft: number = 0;
+	let keyName: string;
 	setInterval(() => {
 		if (timeLeft > 0) timeLeft -= 50;
 	}, 50);
+	onMount(async () => {
+		keyName = await loadKeyName(uuid);
+		console.log(keyName);
+	});
 	async function getCode() {
 		timeLeft =
 			30 * 1000 - (Date.now() - Math.floor(Date.now() / 1000 / 30) * 1000 * 30);
@@ -45,7 +52,9 @@
 			{credential}
 		</TextBlock>
 		<a href="/totp/{uuid}">
-			<TextBlock variant="caption" class="oathKeyId">({uuid})</TextBlock>
+			<TextBlock variant="caption" class="oathKeyId"
+				>({keyName ?? uuid})</TextBlock
+			>
 		</a>
 	</div>
 	<button
