@@ -17,6 +17,13 @@ const config = {
 			},
 			mode: "hash",
 		},
+		prerender: {
+			crawl: true,
+			entries: [
+				"*",
+				"/totp/[uuid]",
+			],
+		},
 	},
 	vitePlugin: {
 		experimental: {
