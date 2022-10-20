@@ -56,7 +56,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ needs.create-release.outputs.release_ref }}
+          ref: ${{ fromJSON(needs.create-release.outputs.release_ref) }}
       - uses: pnpm/action-setup@v2
         with:
           version: 7
