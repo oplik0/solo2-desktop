@@ -1,6 +1,12 @@
 {
 	"extends": "@tsconfig/svelte/tsconfig.json",
 	"compilerOptions": {
+		"paths": {
+			"$lib/*": ["./src/lib/*"],
+			"$routes/*": ["./src/routes/*"],
+			"$assets/*": ["./src/assets/*"],
+			"$icons/*": ["./src/assets/icons/*"]
+		},
 		"allowSyntheticDefaultImports": true,
 		"target": "ESNext",
 		"useDefineForClassFields": true,

@@ -13,6 +13,7 @@ const config: UserConfig = {
 	resolve: {
 		alias: {
 			$lib: resolve(__dirname, "src/lib"),
+			$routes: resolve(__dirname, "src/routes"),
 			$assets: resolve(__dirname, "src/assets"),
 			$icons: resolve(__dirname, "src/assets/icons"),
 		},

@@ -4,7 +4,7 @@
 	import { ListItem } from "fluent-svelte";
 	interface Items {
 		[path: string]: WrappedComponent & {
-			userData: { title: string; description: string };
+			userData?: { title?: string; description?: string };
 		};
 	}
 	export let items: Items;

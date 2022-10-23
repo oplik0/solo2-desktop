@@ -4,7 +4,7 @@
 	import Router from "svelte-spa-router";
 	import { wrap } from "svelte-spa-router/wrap";
 	import Nav from "$lib/Nav.svelte";
-	import Keys from "./routes/keys.svelte";
+	import Keys from "$routes/keys.svelte";
 	const routes = {
 		"/": wrap({
 			component: Keys,
@@ -14,20 +14,22 @@
 			},
 		}),
 		"/totp": wrap({
-			asyncComponent: () => import("./routes/totp.svelte"),
+			asyncComponent: () => import("$routes/totp.svelte"),
 			userData: {
 				title: "TOTP",
 				description: "List of TOTP Credentials",
 			},
 		}),
 		"/totp/:uuid": wrap({
-			asyncComponent: () => import("./routes/totp.svelte"),
+			asyncComponent: () => import("$routes/totp.svelte"),
 			userData: {
 				title: "TOTP",
 				description: "List of TOTP Credentials",
 			},
 		}),
-		"*": Keys,
+		"*": wrap({
+			component: Keys,
+		}),
 	};
 </script>
 
