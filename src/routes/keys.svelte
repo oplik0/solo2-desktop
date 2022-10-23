@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from "$app/environment";
 	import KeyCard from "$lib/KeyCard.svelte";
 	import { addNamesToKeys } from "$lib/keyName";
 	import { listen } from "@tauri-apps/api/event";
@@ -9,14 +8,12 @@
 
 	let keyList: Solo2List;
 	let latest_version: string;
-	if (browser) {
-		listen("usb_change", async () => {
-			keyList = await addNamesToKeys(await invoke("list_keys"));
-		});
-		listen("latest_version", (version) => {
-			latest_version = version.payload as string;
-		});
-	}
+	listen("usb_change", async () => {
+		keyList = await addNamesToKeys(await invoke("list_keys"));
+	});
+	listen("latest_version", (version) => {
+		latest_version = version.payload as string;
+	});
 	onMount(async () => {
 		keyList = await addNamesToKeys(await invoke("list_keys"));
 		latest_version = await invoke("latest_version");

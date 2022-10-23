@@ -1,29 +1,28 @@
 <script lang="ts">
-	import { page } from "$app/stores";
+	import { link, location } from "svelte-spa-router";
+	import type { WrappedComponent } from "svelte-spa-router";
 	import { ListItem } from "fluent-svelte";
-	interface Item {
-		href: string;
-		name: string;
-		icon?: string;
+	interface Items {
+		[path: string]: WrappedComponent & {
+			userData: { title: string; description: string };
+		};
 	}
-
-	export let items: Item[];
+	export let items: Items;
+	items = Object.fromEntries(
+		Object.entries(items).filter(([path, userData]) =>
+			path.match(/^\/(?![:*]+)[\w\/]*$/g)
+		)
+	);
 </script>
 
 <nav>
-	{#each items as { href, name, icon }}
+	{#each Object.keys(items) as href}
 		<ListItem
-			selected={$page.url.pathname === href ||
-				($page.url.pathname.split("/").length > 2 &&
-					href.split("/").length > 2 &&
-					$page.url.pathname.startsWith(href))}
-			{href}
+			selected={href === $location.replaceAll(/\/:.+\//g, "")}
+			href={"#" + href}
 			role="navigation"
 		>
-			{#if icon && icon.startsWith("<svg")}
-				{@html icon}
-			{/if}
-			{name}
+			{items[href]?.userData?.title}
 		</ListItem>
 	{/each}
 </nav>

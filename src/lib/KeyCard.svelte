@@ -17,6 +17,7 @@
 	import { parse, gt, major } from "semver";
 	import type { Solo2 } from "src/types";
 	import { saveKeyName } from "$lib/keyName";
+	import { link } from "svelte-spa-router";
 
 	export let key: Solo2;
 	export let latest_version = "0.0.0";
@@ -172,7 +173,7 @@
 					>variant: {key.secure ? "secure" : "hacker"}</TextBlock
 				>
 				<div>
-					<Button variant="hyperlink" href="/totp/{key.uuid}">TOTP</Button>
+					<Button variant="hyperlink" href="#/totp/{key.uuid}">TOTP</Button>
 
 					<IconButton on:click={upload_firmware}>
 						<Tooltip

@@ -1,19 +1,16 @@
 <script lang="ts">
-	import { browser } from "$app/environment";
 	import TotpCard from "$lib/TotpCard.svelte";
 	import AddOath from "$lib/AddOath.svelte";
 	import { listen } from "@tauri-apps/api/event";
 	import { invoke } from "@tauri-apps/api/tauri";
 	import { onMount } from "svelte";
-
+	export let params: Record<string, unknown> = {};
 	let oathList: Record<string, string>;
 	async function refreshOathList() {
 		oathList = await invoke("list_oath");
 	}
-	if (browser) {
-		listen("usb_change", refreshOathList);
-		listen("oath_change", refreshOathList);
-	}
+	listen("usb_change", refreshOathList);
+	listen("oath_change", refreshOathList);
 	onMount(refreshOathList);
 </script>
 
@@ -24,11 +21,15 @@
 
 <section>
 	{#if oathList}
-		{#each Object.entries(oathList) as [credential, uuid]}
+		{#each Object.entries(oathList).filter(([_, uuid]) => !params.uuid || uuid === params.uuid) as [credential, uuid]}
 			<TotpCard {credential} {uuid} />
 		{/each}
 	{/if}
-	<AddOath uuid={Object.values(oathList ?? {})} />
+	<AddOath
+		uuid={Object.values(oathList ?? {}).filter(
+			(uuid) => !params.uuid || uuid === params.uuid
+		)}
+	/>
 </section>
 
 <style>
