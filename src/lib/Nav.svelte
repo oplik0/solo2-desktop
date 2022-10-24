@@ -18,7 +18,7 @@
 <nav>
 	{#each Object.keys(items) as href}
 		<ListItem
-			selected={href === $location.replaceAll(/\/:.+\//g, "")}
+			selected={href.split("/")[1] === $location.split("/")[1]}
 			href={"#" + href}
 			role="navigation"
 		>
