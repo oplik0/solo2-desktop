@@ -35,7 +35,9 @@
 
 <Breadcrumbs />
 <Nav items={routes} />
-<Router {routes} />
+<main>
+	<Router {routes} />
+</main>
 
 <style>
 	:global(body) {
