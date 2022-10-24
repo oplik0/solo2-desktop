@@ -10,6 +10,7 @@
 	import { writeText } from "@tauri-apps/api/clipboard";
 	import { loadKeyName } from "./keyName";
 	import { onMount } from "svelte";
+	import { link } from "svelte-spa-router";
 	export let uuid: string;
 	export let credential: string;
 	let code = "";
@@ -51,7 +52,7 @@
 		<TextBlock variant="subtitle" class="oath-credential-id">
 			{credential}
 		</TextBlock>
-		<a href="/totp/{uuid}">
+		<a href="/totp/{uuid}" use:link>
 			<TextBlock variant="caption" class="oathKeyId"
 				>({keyName ?? uuid})</TextBlock
 			>

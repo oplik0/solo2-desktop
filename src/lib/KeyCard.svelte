@@ -17,6 +17,7 @@
 	import { parse, gt, major } from "semver";
 	import type { Solo2 } from "src/types";
 	import { saveKeyName } from "$lib/keyName";
+	import { link } from "svelte-spa-router";
 
 	export let key: Solo2;
 	export let latest_version = "0.0.0";
@@ -165,14 +166,16 @@
 		<svelte:fragment slot="content">
 			<div class="expanded-content">
 				{#if key.name}
-					<TextBlock variant="bodyStrong">uuid: {key.uuid}</TextBlock>
+					<TextBlock variant="caption" class="uuid-content">
+						{key.uuid}
+					</TextBlock>
 				{/if}
 				<TextBlock variant="bodyStrong">semver: v{key.version}</TextBlock>
-				<TextBlock variant="bodyStrong"
-					>variant: {key.secure ? "secure" : "hacker"}</TextBlock
-				>
+				<TextBlock variant="bodyStrong">
+					variant: {key.secure ? "secure" : "hacker"}
+				</TextBlock>
 				<div>
-					<Button variant="hyperlink" href="/totp/{key.uuid}">TOTP</Button>
+					<Button variant="hyperlink" href="#/totp/{key.uuid}">TOTP</Button>
 
 					<IconButton on:click={upload_firmware}>
 						<Tooltip
@@ -368,6 +371,10 @@
 	}
 	:global(.overflow-visible > .expander-content-anchor) {
 		overflow: visible !important;
+	}
+	:global(.uuid-content) {
+		max-width: min-content;
+		text-align: center;
 	}
 	.selected_file {
 		fill: var(--fds-accent-default);
