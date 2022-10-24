@@ -1,3 +1,18 @@
+# [1.0.0-alpha.23](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.22...v1.0.0-alpha.23) (2022-10-24)
+
+
+### Bug Fixes
+
+* add aliases to tsconfig so VSCode doesn't complain ([4b0dd5b](https://github.com/oplik0/solo2-gui/commit/4b0dd5b1d97dae0c0a77c2d849864314eedacebc))
+* mark active nav link on key-specific TOTP page ([a4099c1](https://github.com/oplik0/solo2-gui/commit/a4099c12e3e2164f6fa090d720b569e9be69021d))
+* styling ([23b9548](https://github.com/oplik0/solo2-gui/commit/23b954804e0d5a681a3aaee5ae0aa90b6d8b2e7a))
+
+
+### Features
+
+* don't use dynamic imports for store api ([6cbfced](https://github.com/oplik0/solo2-gui/commit/6cbfced7b20d73248e2a1fefd1fecc3cf329a70f))
+* get most of the app working without svelte kit ([24436de](https://github.com/oplik0/solo2-gui/commit/24436de2bd0ea90f914ea257159d75a5df21258b))
+
 # [1.0.0-alpha.22](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.21...v1.0.0-alpha.22) (2022-10-20)
 
 
