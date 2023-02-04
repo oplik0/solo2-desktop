@@ -21,7 +21,7 @@ serde_json = "1.0"
 solo2 = { version = "0.2.1", features = ["dev-pki"] }
 tauri = { version = "1.1.1", features = ["clipboard-write-text", "dialog-open", "isolation", "shell-open", "updater", "window-set-decorations"] }
 tauri-plugin-store = { git = "https://github.com/tauri-apps/tauri-plugin-store", branch = "dev" }
-tokio = { version = "1.21.1", features = ["sync", "time"] }
+tokio = { version = "1.24.2", features = ["sync", "time"] }
 ureq = "2.5.0"
 usb_enumeration = "0.1.2"
 window-vibrancy = "0.3.0"
