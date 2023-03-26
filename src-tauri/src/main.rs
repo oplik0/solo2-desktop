@@ -13,10 +13,9 @@ mod solo;
 mod update;
 mod list;
 mod oath;
-use tauri_plugin_store::PluginBuilder;
 fn main() {
 	tauri::Builder::default()
-		.plugin(PluginBuilder::default().build())
+		.plugin(tauri_plugin_store::Builder::default().build())
 		.manage(Solo2List(Default::default()))
 		.setup(|app| {
 			let window = app.get_window("main").unwrap();
