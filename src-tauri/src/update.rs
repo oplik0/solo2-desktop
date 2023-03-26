@@ -1,11 +1,18 @@
+use serde::Serialize;
 use solo2::{Device, Firmware, Uuid, UuidSelectable};
-use tauri::{command, State};
+use tauri::{command, State, Window};
 
 use crate::solo::Solo2List;
 
+#[derive (Serialize, Clone)]
+struct ProgressData {
+	completed: usize,
+	total: usize,
+	uuid: String,
+}
 
 #[command]
-pub async fn update_key(uuid: String, file: Option<String>, state: State<'_, Solo2List>) -> Result<(), String> {
+pub async fn update_key(uuid: String, file: Option<String>, state: State<'_, Solo2List>, window: Window) -> Result<(), String> {
 	let list = state.0.lock().await;
 	if list.contains_key(&uuid) {
 		let firmware = match file {
@@ -20,12 +27,18 @@ pub async fn update_key(uuid: String, file: Option<String>, state: State<'_, Sol
 		};
 		let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
 		let device = Device::having(converted_uuid).unwrap();
-		match device.program(firmware, true) {
+		let total = firmware.len() as u64;
+		let bar = indicatif::ProgressBar::new(total);
+		let progress = |bytes: usize| {
+			window.emit("update_progress", ProgressData{completed: bytes, total: total as usize, uuid: uuid.clone()}).unwrap();
+			bar.set_position(bytes as u64);
+		};
+
+		match device.program(firmware, true, Some(&progress)) {
 			Ok(_) => Ok(()),
 			Err(e) => Err(e.to_string()),
 		}
 	} else {
-		println!("List: {:?}", list);
 		Err("Key not found".to_string())
 	}
 }

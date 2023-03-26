@@ -15,18 +15,34 @@
 		TextBox,
 	} from "fluent-svelte";
 	import { parse, gt, major } from "semver";
-	import type { Solo2 } from "src/types";
+	import type { Solo2, UpdateData } from "$types";
 	import { saveKeyName } from "$lib/keyName";
 	import { link } from "svelte-spa-router";
+	import { listen } from "@tauri-apps/api/event";
 
 	export let key: Solo2;
 	export let latest_version = "0.0.0";
 	let dialogOpen = false;
 	let updating = false;
+	let updateProgress = 0;
 	let expanding = false;
 	let selected_file: string | undefined;
 	let keyName = key.name ?? key.uuid;
 	let editingKeyName = false;
+	listen("update_progress", async (data) => {
+		const updateData = data.payload as UpdateData;
+		if (updateData.uuid === key.uuid) {
+			const progress = Math.round(
+				100 * (updateData.completed / updateData.total)
+			);
+			if (progress === 100) {
+				updating = false;
+			} else {
+				updating = true;
+				updateProgress = progress;
+			}
+		}
+	});
 	async function update() {
 		updating = true;
 		try {
@@ -210,7 +226,7 @@
 						style="width: 85px"
 					>
 						{#if updating}
-							<ProgressRing size={20} />
+							<ProgressRing size={20} value={updateProgress} />
 						{:else}
 							<TextBlock>Update</TextBlock>
 						{/if}

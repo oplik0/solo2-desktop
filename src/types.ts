@@ -7,3 +7,9 @@ export interface Solo2 {
 export interface Solo2List {
 	[uuid: string]: Solo2;
 }
+
+export interface UpdateData {
+	uuid: string;
+	completed: number;
+	total: number;
+}

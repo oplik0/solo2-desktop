@@ -3,8 +3,9 @@
 	import { addNamesToKeys } from "$lib/keyName";
 	import { listen } from "@tauri-apps/api/event";
 	import { invoke } from "@tauri-apps/api/tauri";
-	import type { Solo2List } from "src/types";
+	import type { Solo2List } from "$types";
 	import { onMount } from "svelte";
+	import type { UpdateData } from "../types";
 
 	let keyList: Solo2List;
 	let latest_version: string;

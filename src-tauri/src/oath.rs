@@ -55,7 +55,6 @@ pub async fn register_oath(uuid: String, label: String, issuer: Option<String>, 
         "sha256" => Digest::Sha256,
         _ => return Err("Unsupported credential type".to_string())
     };
-    println!("label: {:?}", label);
     let credential = Credential{
         label,
         issuer,
