@@ -22,7 +22,7 @@ pub async fn list_oath(uuid: Option<String>, state: State<'_, Solo2List>)-> Resu
         },
         None => {
             for (uuid, _) in list.iter() {
-                let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
+                let converted_uuid = Uuid::from_u128(u128::from_str_radix(uuid, 16).unwrap());
                 let mut device = Solo2::having(converted_uuid).unwrap();
                 let mut oath = Oath::select(&mut device).unwrap();
                 for credential in oath.list().unwrap() {
