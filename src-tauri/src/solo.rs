@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::{collections::BTreeMap, str::FromStr};
 
 use memoize::memoize;
 use serde::{Serialize, Deserialize};
@@ -14,7 +14,8 @@ pub struct Solo2Info {
 }
 impl From<Solo2> for Solo2Info {
 	fn from(solo2: Solo2) -> Solo2Info {
-		let uuid = solo2.uuid().to_simple().to_string();
+		let uuid = solo2.uuid().simple().to_string();
+		println!("uuid: {}", uuid);
 		Solo2Info {
 			uuid: uuid.to_uppercase(),
 			version: solo2.version(),
@@ -44,7 +45,8 @@ pub struct Solo2List(pub Mutex<BTreeMap<String, Solo2Info>>);
 
 #[memoize]
 pub fn get_secure_status(uuid: String) -> Option<bool> {
-	let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
+	println!("get_secure_status: {}", uuid);
+	let converted_uuid = Uuid::from_str(&uuid).unwrap();
 	let mut device = Solo2::having(converted_uuid).unwrap();
 	let mut admin = Admin::select(&mut device).unwrap();
 	Some(admin.locked().unwrap())

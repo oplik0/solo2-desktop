@@ -14,7 +14,7 @@ pub async fn list_keys(state: State<'_, Solo2List>) -> Result<BTreeMap<String, S
 	match catch_unwind(|| {
 		Solo2::list()
 			.into_iter()
-			.map(|solo| (solo.uuid().to_simple().to_string().to_uppercase(), Solo2Info::from(solo)))
+			.map(|solo| (solo.uuid().simple().to_string().to_uppercase(), Solo2Info::from(solo)))
 			.collect()
 	}) {
 		Ok(keys) => {
