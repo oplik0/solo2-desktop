@@ -17,7 +17,6 @@
 	import { parse, gt, major } from "semver";
 	import type { Solo2, UpdateData } from "$types";
 	import { saveKeyName } from "$lib/keyName";
-	import { link } from "svelte-spa-router";
 	import { listen } from "@tauri-apps/api/event";
 
 	export let key: Solo2;
@@ -27,7 +26,6 @@
 	let updateProgress = 0;
 	let expanding = false;
 	let selected_file: string | undefined;
-	let keyName = key.name ?? key.uuid;
 	let editingKeyName = false;
 	listen("update_progress", async (data) => {
 		const updateData = data.payload as UpdateData;
@@ -156,7 +154,7 @@
 				<TextBlock variant="bodyLarge" class="keyId">
 					{key.name ?? key.uuid}
 				</TextBlock>
-				<IconButton on:click={(e) => (editingKeyName = true)}>
+				<IconButton on:click={(_e) => (editingKeyName = true)}>
 					<svg
 						width="24"
 						height="24"

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { link, location } from "svelte-spa-router";
+	import { location } from "svelte-spa-router";
 	import type { WrappedComponent } from "svelte-spa-router";
 	import { ListItem } from "fluent-svelte";
 	interface Items {
@@ -9,8 +9,8 @@
 	}
 	export let items: Items;
 	items = Object.fromEntries(
-		Object.entries(items).filter(([path, userData]) =>
-			path.match(/^\/(?![:*]+)[\w\/]*$/g)
+		Object.entries(items).filter(([path, _userData]) =>
+			path.match(/^\/(?![:*]+)[\w/]*$/g)
 		)
 	);
 </script>

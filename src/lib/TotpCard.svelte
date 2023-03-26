@@ -15,7 +15,7 @@
 	export let credential: string;
 	let code = "";
 	let display_code = false;
-	let timeLeft: number = 0;
+	let timeLeft = 0;
 	let keyName: string;
 	setInterval(() => {
 		if (timeLeft > 0) timeLeft -= 50;

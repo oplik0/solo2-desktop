@@ -3,7 +3,6 @@
 		Button,
 		ComboBox,
 		TextBlock,
-		ProgressRing,
 		ContentDialog,
 		TextBox,
 		Expander,
