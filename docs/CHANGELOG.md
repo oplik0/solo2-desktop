@@ -1,3 +1,15 @@
+# [1.0.0-alpha.24](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.23...v1.0.0-alpha.24) (2023-03-26)
+
+
+### Bug Fixes
+
+* update tauri plugin store usage ([c6642f2](https://github.com/oplik0/solo2-gui/commit/c6642f2ebb68af6b7f20e83fcfe14c6ca0fc119b))
+
+
+### Features
+
+* update progress ([7c50615](https://github.com/oplik0/solo2-gui/commit/7c50615427c86688ba715b9e93db942663e19250))
+
 # [1.0.0-alpha.23](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.22...v1.0.0-alpha.23) (2022-10-24)
 
 
