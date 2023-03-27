@@ -43,18 +43,12 @@ pub async fn list_fido() -> Result<(), String> {
 	if !is_admin() {
 		return Err("You need to run this app as administrator".to_string());
 	}
-
-	let devs = ctap_hid_fido2::get_hid_devices();
-	println!("Found {} devices", devs.len());
-	for dev in devs {
-		if dev.vid != 0x1209 {
-			continue;
-		}
-		println!("Device: {:?}", dev.info);
-	}
 	let fdevs = ctap_hid_fido2::get_fidokey_devices();
 	println!("Found {} fido devices", fdevs.len());
 	for fdev in fdevs {
+		if fdev.vid != 0x1209 || fdev.pid != 0xBEEE {
+			continue;
+		}
 		println!("Fido Device: {:?}", fdev.info);
 	}
 	Ok(())
