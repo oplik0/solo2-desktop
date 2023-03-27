@@ -47,11 +47,15 @@
 </script>
 
 <section>
-	<TextBlock variant="subtitle">Register a new TOTP credential</TextBlock>
+	<TextBlock variant="subtitle"
+		>Register a new {kind.toUpperCase()} credential</TextBlock
+	>
 	<Button variant="accent" on:click={openDialog}>Add crededntial</Button>
 	<ContentDialog {open} class="register-dialog">
 		<div class="dialog-title">
-			<TextBlock variant="subtitle">Register a new TOTP credential</TextBlock>
+			<TextBlock variant="subtitle"
+				>Register a new {kind.toUpperCase()} credential</TextBlock
+			>
 		</div>
 		<form>
 			{#if uuid.length > 1}
@@ -75,12 +79,27 @@
 				<TextBox bind:value={issuer} type="text" />
 			</fieldset>
 			<fieldset>
-				<TextBlock>TOTP Secret</TextBlock>
+				<TextBlock>{kind.toUpperCase()} Secret</TextBlock>
 				<TextBox bind:value={secret} type="text" />
 			</fieldset>
 			<Expander class="addTotpExpander">
 				<TextBlock>Advanced</TextBlock>
 				<svelte:fragment slot="content">
+					<fieldset>
+						<TextBlock>Kind</TextBlock>
+						<div class="radio">
+							<RadioButton
+								bind:group={kind}
+								on:input={() => (period = 30)}
+								value="totp">TOTP</RadioButton
+							>
+							<RadioButton
+								bind:group={kind}
+								on:input={() => (period = 0)}
+								value="hotp">HOTP</RadioButton
+							>
+						</div>
+					</fieldset>
 					<fieldset>
 						<TextBlock>Algorithm</TextBlock>
 						<div class="radio">
@@ -92,8 +111,16 @@
 						</div>
 					</fieldset>
 					<fieldset>
-						<TextBlock>TOTP Period</TextBlock>
-						<TextBox bind:value={period} type="number" placeholder="30" />
+						<TextBlock
+							>{kind == "totp"
+								? "TOTP Period"
+								: "HOTP initial counter"}</TextBlock
+						>
+						<TextBox
+							bind:value={period}
+							type="number"
+							placeholder={kind == "totp" ? "30" : "0"}
+						/>
 					</fieldset>
 					<fieldset>
 						<TextBlock>Digits</TextBlock>

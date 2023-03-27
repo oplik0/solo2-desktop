@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 
 use tauri::{command, State, Window};
 use solo2::apps::Oath;
-use solo2::apps::oath::{Authenticate, Credential, Totp, Kind, Digest, Secret};
+use solo2::apps::oath::{Authenticate, Credential, Totp, Hotp, Kind, Digest, Secret};
 use solo2::{UuidSelectable, Uuid, Solo2, Select};
 
 use crate::solo::Solo2List;
@@ -62,6 +62,7 @@ pub async fn register_oath(uuid: String, label: String, issuer: Option<String>, 
         algorithm: digest,
         kind: match kind.as_str() {
             "totp" => Kind::Totp(Totp{period}),
+            "hotp" => Kind::Hotp(Hotp{initial_counter: period}),
             _ => return Err("Unsupported credential type".to_string()),
         },
         digits,
