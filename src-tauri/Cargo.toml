@@ -15,7 +15,6 @@ description = "An Unofficial Solo2 Desktop App"
 tauri-build = { version = "1.2.1", features = ["isolation"] }
 
 [dependencies]
-indicatif = "0.17.3"
 memoize = { version = "0.4.0", features = ["lru"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
@@ -34,8 +33,3 @@ default = ["custom-protocol"]
 # this feature is used for production builds where `devPath` points to the filesystem
 # DO NOT remove this
 custom-protocol = ["tauri/custom-protocol"]
-
-[profile.dev.package.pcsc]
-debug-assertions = false
-[profile.dev.package.pcsc-sys]
-debug-assertions = false

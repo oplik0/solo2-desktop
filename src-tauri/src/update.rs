@@ -28,10 +28,8 @@ pub async fn update_key(uuid: String, file: Option<String>, state: State<'_, Sol
 		let converted_uuid = Uuid::from_u128(u128::from_str_radix(&uuid, 16).unwrap());
 		let device = Device::having(converted_uuid).unwrap();
 		let total = firmware.len() as u64;
-		let bar = indicatif::ProgressBar::new(total);
 		let progress = |bytes: usize| {
 			window.emit("update_progress", ProgressData{completed: bytes, total: total as usize, uuid: uuid.clone()}).unwrap();
-			bar.set_position(bytes as u64);
 		};
 
 		match device.program(firmware, true, Some(&progress)) {

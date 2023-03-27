@@ -3759,7 +3759,6 @@ dependencies = [
 name = "solo2-desktop"
 version = "1.0.0-alpha.24"
 dependencies = [
- "indicatif",
  "memoize",
  "serde",
  "serde_json",
