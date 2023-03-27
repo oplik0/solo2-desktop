@@ -15,16 +15,21 @@ description = "An Unofficial Solo2 Desktop App"
 tauri-build = { version = "1.2.1", features = ["isolation"] }
 
 [dependencies]
+ctap-hid-fido2 = { git = "https://github.com/oplik0/ctap-hid-fido2.git", branch = "master" }
 memoize = { version = "0.4.0", features = ["lru"] }
+runas = "1.0.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 solo2 = { version = "0.2.2", features = ["dev-pki"] }
-tauri = { version = "1.2.4", features = ["clipboard-write-text", "dialog-open", "isolation", "shell-open", "updater", "window-set-decorations"] }
+tauri = { version = "1.2.4", features = ["cli", "clipboard-write-text", "dialog-open", "isolation", "shell-open", "updater", "window-set-decorations"] }
 tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "dev" }
 tokio = { version = "1.25.0", features = ["sync", "time"] }
 ureq = "2.6.2"
 usb_enumeration = "0.2.0"
 window-vibrancy = "0.3.2"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.46", features = ["Win32_Security", "Win32_System_Threading", "Win32_Foundation"] }
 
 [features]
 # by default Tauri runs in production mode
