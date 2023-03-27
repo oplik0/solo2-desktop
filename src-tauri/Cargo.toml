@@ -1,6 +1,6 @@
 [package]
 name = "solo2-desktop"
-version = "1.0.0-alpha.24"
+version = "1.0.0-alpha.25"
 authors = ["oplik0"]
 default-run = "solo2-desktop"
 edition = "2021"

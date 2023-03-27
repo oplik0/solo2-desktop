@@ -1,3 +1,10 @@
+# [1.0.0-alpha.25](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.24...v1.0.0-alpha.25) (2023-03-27)
+
+
+### Features
+
+* register HTOP ([80f6c65](https://github.com/oplik0/solo2-gui/commit/80f6c65c356729453b05fd535b2365abfd360d39)), closes [#5](https://github.com/oplik0/solo2-gui/issues/5)
+
 # [1.0.0-alpha.24](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.23...v1.0.0-alpha.24) (2023-03-26)
 
 
