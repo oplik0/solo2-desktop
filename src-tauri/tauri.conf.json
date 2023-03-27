@@ -93,6 +93,127 @@
 				"transparent": true,
 				"decorations": false
 			}
-		]
+		],
+		"cli": {
+			"description": "Solo2 Desktop App CLI",
+			"longDescription": "This is a mostly developer-facing CLI for the Solo2 Desktop App - for a more comprehensive CLI experience, please install the solo2-cli (https://github.com/solokeys/solo2-cli) which aside from a more extensive feature set, also offers a more thoughtful CLI experience including tab completion and sensible subcommand grouping.",
+			"subcommands": {
+				"update": {
+					"description": "Update the Solo2 Desktop App",
+					"longDescription": "This command will update the Solo2 Desktop App to the latest version available. If the update is successful, the app will restart automatically.",
+					"args": [
+						{
+							"name": "version",
+							"index": 1,
+							"description": "The version to update to. If not specified, the latest version will be used.",
+							"takesValue": true
+						}
+					]
+				},
+				"version": {
+					"description": "Print the version of the Solo2 Desktop App",
+					"longDescription": "This command will print the version of the Solo2 Desktop App to the console."
+				},
+				"ctap2": {
+					"description": "Run a CTAP2 commands - warning: requires administrative privileges on Windows",
+					"subcommands": {
+						"list": {
+							"description": "List all FIDO2-enabled Solo2 devices connected to the system",
+							"longDescription": "This command will list all Solo2 devices connected to the system."
+						},
+						"credentials": {
+							"args": [
+								{
+									"name": "device",
+									"index": 1,
+									"description": "The device to list credentials for. If not specified, the first device found will be used.",
+									"takesValue": true,
+									"required": true
+								},
+								{
+									"name": "pin",
+									"index": 2,
+									"description": "The PIN to use when authenticating to the device. If not specified, the user will be prompted to enter the PIN.",
+									"takesValue": true,
+									"required": false
+								}
+							],
+							"subcommands": {
+								"list": {
+									"description": "List all credentials stored on the specified device",
+									"longDescription": "This command will list all credentials stored on the specified device."
+								},
+								"delete": {
+									"description": "Delete a credential from the specified device",
+									"longDescription": "This command will delete a credential from the specified device.",
+									"args": [
+										{
+											"name": "credential",
+											"index": 2,
+											"description": "The credential to delete.",
+											"takesValue": true,
+											"required": true
+										}
+									]
+								},
+								"delete-all": {
+									"description": "Delete all credentials from the specified device",
+									"longDescription": "This command will delete all credentials from the specified device."
+								},
+								"update": {
+									"description": "Update a credential on the specified device. WARNING: this is a developer-only command and is not intended for end-users.",
+									"args": [
+										{
+											"name": "did",
+											"index": 1,
+											"description": "The credential descriptor ID to update.",
+											"takesValue": true,
+											"required": true
+										},
+										{
+											"name": "ctype",
+											"index": 2,
+											"description": "The credential type to update.",
+											"takesValue": true,
+											"required": true
+										},
+										{
+											"name": "uid",
+											"index": 3,
+											"description": "The user entity ID to update.",
+											"takesValue": true,
+											"required": true
+										},
+										{
+											"name": "name",
+											"index": 4,
+											"description": "The user entity name to update.",
+											"takesValue": true,
+											"required": true
+										},
+										{
+											"name": "displayName",
+											"index": 5,
+											"description": "The user entity display name to update.",
+											"takesValue": true,
+											"required": true
+										}
+									]
+								}
+							}
+						}
+					}
+				}
+			},
+			"args": [
+				{
+					"name": "version",
+					"index": 1,
+					"description": "The version to update to. If not specified, the latest version will be used.",
+					"takesValue": true,
+					"short": "v"
+				}
+			]
+		}
 	}
 }

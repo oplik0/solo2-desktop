@@ -13,11 +13,19 @@ mod solo;
 mod update;
 mod list;
 mod oath;
+mod fido2;
+mod cli;
 fn main() {
 	tauri::Builder::default()
 		.plugin(tauri_plugin_store::Builder::default().build())
 		.manage(Solo2List(Default::default()))
 		.setup(|app| {
+			match app.get_cli_matches() {
+				Ok(matches) => {
+					cli::run_command(matches, app.handle())
+				},
+				Err(_) => (),
+			}
 			let window = app.get_window("main").unwrap();
 			#[cfg(target_os = "macos")]
 			apply_vibrancy(&window, NSVisualEffectMaterial::HudWindow, None, None).expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
@@ -46,6 +54,7 @@ fn main() {
 			solo::wink,
 			solo::reboot,
 			solo::maintenance,
+			fido2::list_fido
 		])
 		.run(tauri::generate_context!())
 		.expect("error while running tauri application");

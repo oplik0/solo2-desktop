@@ -95,7 +95,10 @@
 							>
 							<RadioButton
 								bind:group={kind}
-								on:input={() => (period = 0)}
+								on:input={() => {
+									period = 0;
+									algorithm = "sha1";
+								}}
 								value="hotp">HOTP</RadioButton
 							>
 						</div>

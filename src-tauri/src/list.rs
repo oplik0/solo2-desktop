@@ -11,6 +11,16 @@ use usb_enumeration::Observer;
 #[command]
 pub async fn list_keys(state: State<'_, Solo2List>) -> Result<BTreeMap<String, Solo2Info>, String> {
 	let mut list = state.0.lock().await;
+	match get_key_list() {
+		Ok(keys) => {
+			list.clone_from(&keys);
+			Ok(keys)
+		},
+		Err(_e) => Err("Error while listing keys".to_string()),
+	}
+}
+
+pub fn get_key_list() -> Result<BTreeMap<String, Solo2Info>, String> {
 	match catch_unwind(|| {
 		Solo2::list()
 			.into_iter()
@@ -18,7 +28,6 @@ pub async fn list_keys(state: State<'_, Solo2List>) -> Result<BTreeMap<String, S
 			.collect()
 	}) {
 		Ok(keys) => {
-			list.clone_from(&keys);
 			Ok(keys)
 		},
 		Err(_e) => Err("Error while listing keys".to_string()),
