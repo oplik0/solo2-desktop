@@ -1,3 +1,10 @@
+# [1.0.0-alpha.26](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.25...v1.0.0-alpha.26) (2023-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate tauri to 1.2.5 [security] ([#22](https://github.com/oplik0/solo2-gui/issues/22)) ([54c0411](https://github.com/oplik0/solo2-gui/commit/54c04113d67ff26e14ad947331ff12eef8466021))
+
 # [1.0.0-alpha.25](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.24...v1.0.0-alpha.25) (2023-03-27)
 
 
