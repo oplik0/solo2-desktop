@@ -1,3 +1,11 @@
+# [1.0.0-alpha.28](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.27...v1.0.0-alpha.28) (2023-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate ureq to 2.7.1 ([#27](https://github.com/oplik0/solo2-gui/issues/27)) ([6919518](https://github.com/oplik0/solo2-gui/commit/69195188942b080df325695cd658898a6a3a23da))
+* **deps:** update rust crate window-vibrancy to 0.4.0 ([#28](https://github.com/oplik0/solo2-gui/issues/28)) ([36fb560](https://github.com/oplik0/solo2-gui/commit/36fb560d8694457b7701807fabb0c2da604da8b3))
+
 # [1.0.0-alpha.27](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.26...v1.0.0-alpha.27) (2023-08-25)
 
 
