@@ -21,7 +21,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.56.0
   '@typescript-eslint/parser': ^5.56.0
   conventional-changelog-conventionalcommits: ^5.0.0
-  dprint: ^0.35.3
+  dprint: ^0.40.0
   eslint: ^8.36.0
   eslint-plugin-svelte3: ^4.0.0
   fluent-svelte: ^1.6.0
@@ -44,7 +44,7 @@ dependencies:
   '@tauri-apps/api': 1.2.0
   semver: 7.3.8
   svelte-spa-router: 3.3.0
-  tauri-plugin-store-api: github.com/tauri-apps/tauri-plugin-store/d21d55684ad444d8cba322f0013e1b2b7e0630a7
+  tauri-plugin-store-api: github.com/tauri-apps/tauri-plugin-store/f4ef29684e4a32eddf51befaae98a5e498df8574
 
 devDependencies:
   '@actions/core': 1.10.0
@@ -65,7 +65,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
   '@typescript-eslint/parser': 5.56.0_j4766f7ecgqbon3u7zlxn5zszu
   conventional-changelog-conventionalcommits: 5.0.0
-  dprint: 0.35.3
+  dprint: 0.40.2
   eslint: 8.36.0
   eslint-plugin-svelte3: 4.0.0_wzem237sbvnwe7n34ytc5phasy
   fluent-svelte: 1.6.0
@@ -297,6 +297,54 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
+
+  /@dprint/darwin-arm64/0.40.2:
+    resolution: {integrity: sha512-qharMFhxpNq9brgvHLbqzzAgVgPWSHLfzNLwWWhKcGOUUDUIilfAo3SlvOz6w4nQiIifLpYZOvZqK7Lpf9mSSw==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/darwin-x64/0.40.2:
+    resolution: {integrity: sha512-FPDdOTVr1JfqtLBTCvqlihWslTy3LBUoi3H1gaqIazCKMj2dB9voFWkBiMT+REMHDrlVsoSpFAfsliNr/y7HPA==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/linux-arm64-glibc/0.40.2:
+    resolution: {integrity: sha512-GmUWfKwEwXA+onvewX9hEJSMcd9V184+uRbEhI5tG28tBP9+IjQhrY7jCjxPvaZA+EvzNPnAy5D1wbJdlNLBNA==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/linux-x64-glibc/0.40.2:
+    resolution: {integrity: sha512-vMHAHdsOY+2thieSWbIrIioDfPgvipwUgd0MZUWOqycTrXU6kLyi2B+5J/2Jc+QO3CiLIbumQd2FH/0vB1eWqA==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/linux-x64-musl/0.40.2:
+    resolution: {integrity: sha512-nFSbDWd9ORyOhJ7a+RmE39WbuPoQ3OQutIgfAmfikiu/wENzEwxxv4QJ7aFnBaoZb0wuVEEpXShr8vY4p0exkg==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@dprint/win32-x64/0.40.2:
+    resolution: {integrity: sha512-qF4VCQzFTZYD61lbQqXLU/IwUTbLK22CancO+uVtXmZRoKU9GaVjcBhMUB7URxsa8rvxWHhHT6ldillI/aOWCg==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
 
   /@esbuild/android-arm/0.17.14:
     resolution: {integrity: sha512-0CnlwnjDU8cks0yJLXfkaU/uoLyRf9VZJs4p1PskBr2AlAHeEsFEwJEo0of/Z3g+ilw5mpyDwThlxzNEIxOE4g==}
@@ -1838,15 +1886,17 @@ packages:
       is-obj: 2.0.0
     dev: true
 
-  /dprint/0.35.3:
-    resolution: {integrity: sha512-BWFdr2Ury2dtqyjaTI9P5vCpb1yn5laLfO3Yo5egrrDlK2A2mv6CSpe/oK2cuOPESMY1JT2dubMv2dPDiJfMnA==}
+  /dprint/0.40.2:
+    resolution: {integrity: sha512-3LdyUV0itEW59UPtsRA2StOWOu8FyOW+BgvJpH/tACRHKi0z5gaQnvSxdS3mbG7dgtEhdRnGg6JoiQyGib6NTg==}
     hasBin: true
     requiresBuild: true
-    dependencies:
-      https-proxy-agent: 5.0.1
-      yauzl: 2.10.0
-    transitivePeerDependencies:
-      - supports-color
+    optionalDependencies:
+      '@dprint/darwin-arm64': 0.40.2
+      '@dprint/darwin-x64': 0.40.2
+      '@dprint/linux-arm64-glibc': 0.40.2
+      '@dprint/linux-x64-glibc': 0.40.2
+      '@dprint/linux-x64-musl': 0.40.2
+      '@dprint/win32-x64': 0.40.2
     dev: true
 
   /duplexer2/0.1.4:
@@ -2136,12 +2186,6 @@ packages:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
     dependencies:
       reusify: 1.0.4
-    dev: true
-
-  /fd-slicer/1.1.0:
-    resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
-    dependencies:
-      pend: 1.2.0
     dev: true
 
   /figures/2.0.0:
@@ -3415,10 +3459,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /pend/1.2.0:
-    resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
-    dev: true
-
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: true
@@ -4535,13 +4575,6 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /yauzl/2.10.0:
-    resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
-    dependencies:
-      buffer-crc32: 0.2.13
-      fd-slicer: 1.1.0
-    dev: true
-
   /yn/3.1.1:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
     engines: {node: '>=6'}
@@ -4557,8 +4590,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  github.com/tauri-apps/tauri-plugin-store/d21d55684ad444d8cba322f0013e1b2b7e0630a7:
-    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/d21d55684ad444d8cba322f0013e1b2b7e0630a7}
+  github.com/tauri-apps/tauri-plugin-store/f4ef29684e4a32eddf51befaae98a5e498df8574:
+    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/f4ef29684e4a32eddf51befaae98a5e498df8574}
     name: tauri-plugin-store-api
     version: 0.0.0
     dependencies:
