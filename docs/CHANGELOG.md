@@ -1,3 +1,10 @@
+# [1.0.0-alpha.27](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.26...v1.0.0-alpha.27) (2023-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate tokio to 1.32.0 ([#26](https://github.com/oplik0/solo2-gui/issues/26)) ([a513cc0](https://github.com/oplik0/solo2-gui/commit/a513cc0f32d5c549b35e23f6280c09f7f6590fca))
+
 # [1.0.0-alpha.26](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.25...v1.0.0-alpha.26) (2023-08-25)
 
 

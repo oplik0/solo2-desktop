@@ -3802,7 +3802,7 @@ dependencies = [
 
 [[package]]
 name = "solo2-desktop"
-version = "1.0.0-alpha.26"
+version = "1.0.0-alpha.27"
 dependencies = [
  "memoize",
  "serde",
