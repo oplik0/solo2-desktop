@@ -55,7 +55,7 @@
 	"dependencies": {
 		"@fontsource/fira-mono": "^5.0.0",
 		"@tauri-apps/api": "^1.2.0",
-		"semver": "^7.3.8",
+		"semver": "^7.5.2",
 		"svelte-spa-router": "^3.3.0",
 		"tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store#dev"
 	},
