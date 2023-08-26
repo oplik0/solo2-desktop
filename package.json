@@ -30,7 +30,7 @@
 		"@semantic-release/release-notes-generator": "^10.0.3",
 		"@sveltejs/vite-plugin-svelte": "^2.0.3",
 		"@tauri-apps/cli": "^1.2.3",
-		"@tsconfig/svelte": "^3.0.0",
+		"@tsconfig/svelte": "^5.0.0",
 		"@types/cookie": "^0.5.1",
 		"@types/semver": "^7.3.13",
 		"@typescript-eslint/eslint-plugin": "^5.56.0",
