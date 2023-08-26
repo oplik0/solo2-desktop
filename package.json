@@ -63,7 +63,7 @@
 		"type": "git",
 		"url": "https://github.com/oplik0/solo2-gui.git"
 	},
-	"packageManager": "pnpm@7.33.6",
+	"packageManager": "pnpm@8.6.12",
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"

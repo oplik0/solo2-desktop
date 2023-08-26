@@ -14,25 +14,29 @@
 	"toml": {
 		"useTabs": true
 	},
-	"rustfmt": {
-		"hard_tabs": true
+	"exec": {
+		"commands": [{
+			"command": "rustfmt --edition 2021",
+			"exts": ["rs"]
+		}]
 	},
 	"includes": [
-		"**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,toml,svelte}"
+		"**/*.{ts,tsx,js,jsx,cjs,mjs,json,toml,svelte}"
 	],
 	"excludes": [
 		"**/node_modules",
 		"**/*-lock.json",
 		"**/target/**",
 		".svelte-kit/**",
-		"build**"
+		"build**",
+		".github/**"
 	],
 	"plugins": [
 		"https://plugins.dprint.dev/typescript-0.73.1.wasm",
 		"https://plugins.dprint.dev/json-0.15.6.wasm",
 		"https://plugins.dprint.dev/markdown-0.14.1.wasm",
 		"https://plugins.dprint.dev/toml-0.5.4.wasm",
-		"https://plugins.dprint.dev/rustfmt-0.6.2.json@886c6f3161cf020c2d75160262b0f56d74a521e05cfb91ec4f956650c8ca76ca",
-		"https://plugins.dprint.dev/prettier-0.11.0.json@385edfc0e1212b3be6412cda49322ecd62cb38ac71b9b463869bebf23a4767e3"
+		"https://plugins.dprint.dev/prettier-0.27.0.json@3557a62b4507c55a47d8cde0683195b14d13c41dda66d0f0b0e111aed107e2fe",
+		"https://plugins.dprint.dev/exec-0.4.3.json@42343548b8022c99b1d750be6b894fe6b6c7ee25f72ae9f9082226dd2e515072"
 	]
 }
