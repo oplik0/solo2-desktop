@@ -23,7 +23,7 @@ fn main() {
 			apply_vibrancy(&window, NSVisualEffectMaterial::HudWindow, None, None).expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
 			#[cfg(target_os = "windows")]
-			match apply_mica(&window) {
+			match apply_mica(&window, None) {
 				Ok(_) => (),
 				Err(_) => {
 					apply_acrylic(&window, Some((18, 18, 18, 125))).expect("Unsupported platform! Acrylic is only supported on Windows");
