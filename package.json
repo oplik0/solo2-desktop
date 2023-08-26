@@ -53,7 +53,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/fira-mono": "^4.5.10",
+		"@fontsource/fira-mono": "^5.0.0",
 		"@tauri-apps/api": "^1.2.0",
 		"semver": "^7.3.8",
 		"svelte-spa-router": "^3.3.0",
