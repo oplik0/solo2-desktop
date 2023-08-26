@@ -4056,7 +4056,7 @@ dependencies = [
 
 [[package]]
 name = "solo2-desktop"
-version = "1.0.0-alpha.28"
+version = "1.0.0-alpha.29"
 dependencies = [
  "memoize",
  "serde",

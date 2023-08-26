@@ -1,3 +1,14 @@
+# [1.0.0-alpha.29](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.28...v1.0.0-alpha.29) (2023-08-26)
+
+
+### Bug Fixes
+
+* apply_mica parameter changes ([e9faf0d](https://github.com/oplik0/solo2-gui/commit/e9faf0d79ba29d8405bf3e7d4ae9e2c047538134))
+* **deps:** update dependency @fontsource/fira-mono to v5 ([#41](https://github.com/oplik0/solo2-gui/issues/41)) ([716fa31](https://github.com/oplik0/solo2-gui/commit/716fa3122c148a59840ead0aaf4f128817f7ea87))
+* **deps:** update tauri monorepo ([#29](https://github.com/oplik0/solo2-gui/issues/29)) ([64618ff](https://github.com/oplik0/solo2-gui/commit/64618ffbef195f183b133c8dfd1c593fb38af00d))
+* **deps:** update tauri monorepo ([#42](https://github.com/oplik0/solo2-gui/issues/42)) ([2fad380](https://github.com/oplik0/solo2-gui/commit/2fad3803ad9c79b3946aa2aa50730ea44d24dea2))
+* linter updates ([4fd0b36](https://github.com/oplik0/solo2-gui/commit/4fd0b362701653b097ef5ece5319818b90bd969b))
+
 # [1.0.0-alpha.28](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.27...v1.0.0-alpha.28) (2023-08-25)
 
 
