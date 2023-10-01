@@ -22,7 +22,7 @@ solo2 = { version = "0.2.2", features = ["dev-pki"] }
 tauri = { version = "1.4.1", features = ["clipboard-write-text", "dialog-open", "isolation", "shell-open", "updater", "window-set-decorations"] }
 tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "dev" }
 tokio = { version = "1.32.0", features = ["sync", "time"] }
-ureq = "2.7.1"
+ureq = "2.8.0"
 usb_enumeration = "0.2.0"
 window-vibrancy = "0.4.0"
 
