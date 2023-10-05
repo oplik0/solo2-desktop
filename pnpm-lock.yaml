@@ -19,7 +19,7 @@ dependencies:
     version: 3.3.0
   tauri-plugin-store-api:
     specifier: github:tauri-apps/tauri-plugin-store#dev
-    version: github.com/tauri-apps/tauri-plugin-store/f4ef29684e4a32eddf51befaae98a5e498df8574
+    version: git@github.com+tauri-apps/tauri-plugin-store/f4ef29684e4a32eddf51befaae98a5e498df8574
 
 devDependencies:
   '@actions/core':
@@ -3517,8 +3517,8 @@ packages:
       load-json-file: 4.0.0
     dev: true
 
-  /postcss@8.4.21:
-    resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
+  /postcss@8.4.31:
+    resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.6
@@ -4479,7 +4479,7 @@ packages:
     dependencies:
       '@types/node': 18.15.10
       esbuild: 0.17.14
-      postcss: 8.4.21
+      postcss: 8.4.31
       resolve: 1.22.1
       rollup: 3.20.2
     optionalDependencies:
@@ -4603,8 +4603,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  github.com/tauri-apps/tauri-plugin-store/f4ef29684e4a32eddf51befaae98a5e498df8574:
-    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/f4ef29684e4a32eddf51befaae98a5e498df8574}
+  git@github.com+tauri-apps/tauri-plugin-store/f4ef29684e4a32eddf51befaae98a5e498df8574:
+    resolution: {commit: f4ef29684e4a32eddf51befaae98a5e498df8574, repo: git@github.com:tauri-apps/tauri-plugin-store.git, type: git}
     name: tauri-plugin-store-api
     version: 0.0.0
     dependencies:
