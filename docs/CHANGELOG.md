@@ -1,3 +1,10 @@
+# [1.0.0-alpha.30](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.29...v1.0.0-alpha.30) (2023-10-05)
+
+
+### Bug Fixes
+
+* **deps:** update rust crate ureq to 2.8.0 ([#53](https://github.com/oplik0/solo2-gui/issues/53)) ([2168b05](https://github.com/oplik0/solo2-gui/commit/2168b05dee174f1c021b8a65de1275faba1cae85))
+
 # [1.0.0-alpha.29](https://github.com/oplik0/solo2-gui/compare/v1.0.0-alpha.28...v1.0.0-alpha.29) (2023-08-26)
 
 
