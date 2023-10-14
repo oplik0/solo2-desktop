@@ -23,6 +23,7 @@ module.exports = {
 	],
 	rules: {
 		"@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+		"@typescript-eslint/ban-ts-comment": ["error", { "ts-ignore": "allow-with-description" }],
 	},
 	parserOptions: {
 		sourceType: "module",

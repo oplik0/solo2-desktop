@@ -7,7 +7,7 @@
 	import Keys from "$routes/keys.svelte";
 	const routes = {
 		"/": wrap({
-			// @ts-ignore
+			// @ts-ignore: svelte4 type issues, will probably migrate back to SvelteKit later since spa-router seems unmaintained
 			component: Keys,
 			userData: {
 				title: "Keys",
@@ -31,7 +31,7 @@
 			},
 		}),
 		"*": wrap({
-			// @ts-ignore
+			// @ts-ignore: svelte4 type issues, will probably migrate back to SvelteKit later since spa-router seems unmaintained
 			component: Keys,
 		}),
 	};
