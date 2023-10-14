@@ -29,7 +29,7 @@ jobs:
       - name: Get release id
         id: get-release-id
         if: ${{ steps.release-please.outputs.releases_created }}
-        run: echo "release_id=$(gh api '/repos/{owner}/{repo}/releases/tags/${{ steps.release-please.outputs.tag_name }}' -q '.id'" >> "$GITHUB_OUTPUT"
+        run: echo "release_id=$(gh api '/repos/{owner}/{repo}/releases/tags/${{ steps.release-please.outputs.tag_name }}' -q '.id')" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ github.token }}
 
