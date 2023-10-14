@@ -1,14 +1,7 @@
-import preprocess from "svelte-preprocess";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: preprocess(),
-	vitePlugin: {
-		experimental: {
-			useVitePreprocess: true,
-		},
-	},
+	preprocess: vitePreprocess(),
 };
 
 export default config;

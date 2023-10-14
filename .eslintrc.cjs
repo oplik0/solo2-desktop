@@ -1,16 +1,26 @@
 module.exports = {
 	root: true,
 	parser: "@typescript-eslint/parser",
-	extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-	plugins: ["svelte3", "@typescript-eslint"],
+	extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:svelte/recommended"],
+	plugins: ["@typescript-eslint"],
 	ignorePatterns: [
 		"*.cjs",
 		"**/target/**",
 	],
-	overrides: [{ files: ["*.svelte"], processor: "svelte3/svelte3" }],
-	settings: {
-		"svelte3/typescript": () => require("typescript"),
-	},
+	overrides: [
+		{
+			files: ["*.svelte"],
+			parser: "svelte-eslint-parser",
+			parserOptions: {
+				parser: {
+					// Specify a parser for each lang.
+					ts: "@typescript-eslint/parser",
+					js: "espree",
+					typescript: "@typescript-eslint/parser",
+				},
+			},
+		},
+	],
 	rules: {
 		"@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
 	},

@@ -1,13 +1,12 @@
+import svg from "@poppanator/sveltekit-svg";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { resolve } from "node:path";
 import type { UserConfig } from "vite";
-import svelteSVG from "vite-plugin-svelte-svg";
 const config: UserConfig = {
 	plugins: [
 		svelte(),
-		svelteSVG({
-			svgoConfig: {},
-			requireSuffix: true,
+		svg({
+			includePaths: ["src/assets/icons", "src/assets"],
 		}),
 	],
 	resolve: {

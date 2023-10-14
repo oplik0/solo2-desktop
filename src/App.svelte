@@ -1,12 +1,13 @@
 <script lang="ts">
 	import "fluent-svelte/theme.css";
 	import Breadcrumbs from "$lib/Breadcrumbs.svelte";
-	import Router from "svelte-spa-router";
+	import Router, { type AsyncSvelteComponent } from "svelte-spa-router";
 	import { wrap } from "svelte-spa-router/wrap";
 	import Nav from "$lib/Nav.svelte";
 	import Keys from "$routes/keys.svelte";
 	const routes = {
 		"/": wrap({
+			// @ts-ignore
 			component: Keys,
 			userData: {
 				title: "Keys",
@@ -14,20 +15,23 @@
 			},
 		}),
 		"/totp": wrap({
-			asyncComponent: () => import("$routes/totp.svelte"),
+			asyncComponent: (() =>
+				import("$routes/totp.svelte")) as AsyncSvelteComponent,
 			userData: {
 				title: "TOTP",
 				description: "List of TOTP Credentials",
 			},
 		}),
 		"/totp/:uuid": wrap({
-			asyncComponent: () => import("$routes/totp.svelte"),
+			asyncComponent: (() =>
+				import("$routes/totp.svelte")) as AsyncSvelteComponent,
 			userData: {
 				title: "TOTP",
 				description: "List of TOTP Credentials",
 			},
 		}),
 		"*": wrap({
+			// @ts-ignore
 			component: Keys,
 		}),
 	};
