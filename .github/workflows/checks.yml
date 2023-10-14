@@ -1,0 +1,50 @@
+name: Check and lint code
+
+on:
+  push:
+    branches: [ "alpha", "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "alpha", "main" ]
+
+jobs:
+  svelte-check:
+    name: Run svelte-check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: pnpm
+      - name: check
+        run: pnpm run check
+  lint:
+    name: Lint code
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: pnpm
+      - name: check
+        run: pnpm run lint
