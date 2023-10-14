@@ -24,7 +24,7 @@ tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", 
 tokio = { version = "1.32.0", features = ["sync", "time"] }
 ureq = "2.8.0"
 usb_enumeration = "0.2.0"
-window-vibrancy = "0.4.0"
+window-vibrancy = "0.4.2"
 
 [features]
 # by default Tauri runs in production mode
