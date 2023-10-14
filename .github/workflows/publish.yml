@@ -3,7 +3,7 @@ name: "Release"
 on:
   push:
     branches:
-      - alpha
+      - main
 
 permissions:
   contents: write
@@ -39,9 +39,9 @@ jobs:
         platform: [macos-latest, ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+      - uses: actions/checkout@v4
         with:
-          ref: ${{ fromJSON(needs.release-please.outputs.sha) }}
+          ref: ${{ needs.release-please.outputs.sha }}
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -63,10 +63,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf libudev-dev build-essential curl wget libssl-dev libpcsclite-dev
-      - name: remove pre-release (windows only)
-        if: matrix.platform == 'windows-latest'
-        run: (Get-Content ./package.json) -Replace '(\d+\.\d+\.\d+)-alpha\.\d+', '$1' | Set-Content ./package.json
-        shell: powershell
       - name: install app dependencies and build it
         run: pnpm install && pnpm build
       - uses: tauri-apps/tauri-action@v0
