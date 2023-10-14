@@ -1,14 +1,11 @@
 {
-	"bootstrap-sha": "3085908efd04d7df3b1d88a58ebc5aa42d9c9b31",
 	"draft": true,
 	"packages": {
 		".": {
-			"release-type": "node",
-			"release-as": "1.0.0"
+			"release-type": "node"
 		},
 		"src-tauri": {
-			"release-type": "rust",
-			"release-as": "1.0.0"
+			"release-type": "rust"
 		}
 	}
 }
