@@ -2496,9 +2496,9 @@ dependencies = [
 
 [[package]]
 name = "memoize"
-version = "0.4.0"
+version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3b2ae6b7c9fbefd9bad492a5c65013e9fd10d6db3f971ee1e2d1c55485dd5135"
+checksum = "5df4051db13d0816cf23196d3baa216385ae099339f5d0645a8d9ff2305e82b8"
 dependencies = [
  "lazy_static",
  "lru",
