@@ -24,7 +24,7 @@
 		"@sveltejs/vite-plugin-svelte": "^2.4.6",
 		"@tauri-apps/cli": "^1.5.2",
 		"@tsconfig/svelte": "^5.0.2",
-		"@types/cookie": "^0.5.2",
+		"@types/cookie": "^0.6.0",
 		"@types/semver": "^7.5.3",
 		"@typescript-eslint/eslint-plugin": "^6.7.5",
 		"@typescript-eslint/parser": "^6.7.5",
