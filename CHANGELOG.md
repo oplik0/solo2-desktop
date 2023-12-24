@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.0-alpha.30](https://github.com/oplik0/solo2-desktop/compare/v1.0.0-alpha.30...v1.1.0-alpha.30) (2023-12-24)
+
+
+### Features
+
+* generate new icons ([dcf0235](https://github.com/oplik0/solo2-desktop/commit/dcf02355726a88b7f171ad170453c69a0c4a197e))
+* upgrade to Svelte 4 ([c10dde7](https://github.com/oplik0/solo2-desktop/commit/c10dde781615d3fbd44fd8cbde76222d09134acb))
+
+
+### Bug Fixes
+
+* **deps:** update rust crate memoize to 0.4.2 ([#73](https://github.com/oplik0/solo2-desktop/issues/73)) ([d6af4c6](https://github.com/oplik0/solo2-desktop/commit/d6af4c6ea0c4306093249baeb6526cc9126a04df))
+* **deps:** update rust crate tokio to 1.33.0 ([#55](https://github.com/oplik0/solo2-desktop/issues/55)) ([ac6bc56](https://github.com/oplik0/solo2-desktop/commit/ac6bc56324a0c0660e008b52bf63a297c00a9cf5))
+* **deps:** update rust crate tokio to 1.35.1 ([#74](https://github.com/oplik0/solo2-desktop/issues/74)) ([8a33ad0](https://github.com/oplik0/solo2-desktop/commit/8a33ad0c071d3ae494e898676ae5616f5d636292))
+* **deps:** update rust crate ureq to 2.9.1 ([#79](https://github.com/oplik0/solo2-desktop/issues/79)) ([08aac11](https://github.com/oplik0/solo2-desktop/commit/08aac1120173741696f1aa3c29d9125809cdd6d3))
+* **deps:** update rust crate window-vibrancy to 0.4.2 ([#48](https://github.com/oplik0/solo2-desktop/issues/48)) ([688661f](https://github.com/oplik0/solo2-desktop/commit/688661f599a951bc3eefbab956f9db93421c28d3))
+* **deps:** update rust crate window-vibrancy to 0.4.3 ([#78](https://github.com/oplik0/solo2-desktop/issues/78)) ([8f78971](https://github.com/oplik0/solo2-desktop/commit/8f789719e03a85552bb08d10c88f997b9c315dad))
+* **deps:** update tauri monorepo ([#43](https://github.com/oplik0/solo2-desktop/issues/43)) ([1f077f9](https://github.com/oplik0/solo2-desktop/commit/1f077f9760ddf863eae0de393d55613d0733eb31))
+* **deps:** update tauri monorepo ([#83](https://github.com/oplik0/solo2-desktop/issues/83)) ([17a5b4f](https://github.com/oplik0/solo2-desktop/commit/17a5b4fdea65af36d3a398f5a3b7d6ae6c47e017))
+* **deps:** update tauri monorepo ([#87](https://github.com/oplik0/solo2-desktop/issues/87)) ([ef07c11](https://github.com/oplik0/solo2-desktop/commit/ef07c11a24f1002d9e15b3a8caf38ad3c9ec6bff))
+* **deps:** update tauri monorepo ([#90](https://github.com/oplik0/solo2-desktop/issues/90)) ([00eb17a](https://github.com/oplik0/solo2-desktop/commit/00eb17ad1917014875f8d6ad453a899ee0f0b68e))
+* lint issues ([c0a3864](https://github.com/oplik0/solo2-desktop/commit/c0a386459a0a05f2f66dcccd36ff8601c0ae48b9))
+* release-please config name ([d507de9](https://github.com/oplik0/solo2-desktop/commit/d507de9b36433fd0ce8d4c3ff43fc30cf0772791))
+
 ## [1.0.0](https://github.com/oplik0/solo2-desktop/compare/solo2-desktop-v1.0.0...solo2-desktop-v1.0.0) (2023-10-14)
 
 
