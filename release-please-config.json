@@ -1,12 +1,10 @@
 {
 	"packages": {
 		".": {
-			"release-as": "1.0.1",
 			"release-type": "node",
 			"component": "svelte"
 		},
 		"src-tauri": {
-			"release-as": "1.0.1",
 			"release-type": "rust",
 			"component": "tauri"
 		}
