@@ -66,9 +66,11 @@
 			}
 		},
 		"security": {
+			"dangerousDisableAssetCspModification": true,
 			"csp": {
 				"default-src": "'self' tauri:",
-				"frame-src": "*.localhost"
+				"frame-src": "*.localhost",
+				"style-src": "'self' tauri: 'unsafe-inline'"
 			}
 		},
 		"updater": {
