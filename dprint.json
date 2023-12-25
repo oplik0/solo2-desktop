@@ -15,14 +15,14 @@
 		"useTabs": true
 	},
 	"exec": {
-		"commands": [{
-			"command": "rustfmt --edition 2021",
-			"exts": ["rs"]
-		}]
+		"commands": [
+			{
+				"command": "rustfmt --edition 2022",
+				"exts": ["rs"]
+			}
+		]
 	},
-	"includes": [
-		"**/*.{ts,tsx,js,jsx,cjs,mjs,json,toml,svelte}"
-	],
+	"includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,toml,svelte}"],
 	"excludes": [
 		"**/node_modules",
 		"**/*-lock.json",
