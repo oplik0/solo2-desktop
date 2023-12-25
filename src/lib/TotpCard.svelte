@@ -5,7 +5,7 @@
 		ProgressRing,
 		MenuFlyout,
 		MenuFlyoutItem,
-	} from "fluent-svelte";
+	} from "fluent-svelte-extra";
 	import { invoke } from "@tauri-apps/api/tauri";
 	import { writeText } from "@tauri-apps/api/clipboard";
 	import { loadKeyName } from "./keyName";

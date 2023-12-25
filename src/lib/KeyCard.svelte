@@ -13,7 +13,7 @@
 		IconButton,
 		Tooltip,
 		TextBox,
-	} from "fluent-svelte";
+	} from "fluent-svelte-extra";
 	import { parse, gt, major } from "semver";
 	import type { Solo2, UpdateData } from "$types";
 	import { saveKeyName } from "$lib/keyName";
