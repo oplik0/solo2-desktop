@@ -1,10 +1,21 @@
 {
 	"packages": {
 		".": {
-			"release-type": "node"
+			"release-as": "1.0.1",
+			"release-type": "node",
+			"component": "svelte"
 		},
 		"src-tauri": {
-			"release-type": "rust"
+			"release-as": "1.0.1",
+			"release-type": "rust",
+			"component": "tauri"
 		}
-	}
+	},
+	"plugins": [
+		{
+			"type": "linked-versions",
+			"groupName": "Tauri app",
+			"components": ["svelte", "tauri"]
+		}
+	]
 }
