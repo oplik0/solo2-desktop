@@ -19,7 +19,7 @@ jobs:
       sha: ${{ steps.release-please.outputs.sha }}
       release_id: ${{ steps.get-release-id.outputs.release_id }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Run release-please
         id: release-please
         uses: google-github-actions/release-please-action@v4
