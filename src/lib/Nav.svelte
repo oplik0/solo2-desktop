@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { location } from "svelte-spa-router";
 	import type { WrappedComponent } from "svelte-spa-router";
-	import { ListItem } from "fluent-svelte";
+	import { ListItem } from "fluent-svelte-extra";
 	interface Items {
 		[path: string]: WrappedComponent & {
 			userData?: { title?: string; description?: string };

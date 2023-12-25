@@ -7,7 +7,7 @@
 		TextBox,
 		Expander,
 		RadioButton,
-	} from "fluent-svelte";
+	} from "fluent-svelte-extra";
 	import { invoke } from "@tauri-apps/api/tauri";
 	import { onMount } from "svelte";
 	import { loadKeyName } from "./keyName";

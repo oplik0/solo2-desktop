@@ -1,5 +1,5 @@
 <script lang="ts">
-	import "fluent-svelte/theme.css";
+	import "fluent-svelte-extra/theme.css";
 	import Breadcrumbs from "$lib/Breadcrumbs.svelte";
 	import Router, { type AsyncSvelteComponent } from "svelte-spa-router";
 	import { wrap } from "svelte-spa-router/wrap";

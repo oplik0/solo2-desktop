@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TextBlock } from "fluent-svelte";
+	import { TextBlock } from "fluent-svelte-extra";
 	import ChevronRight from "$icons/chevron-right.svg?component";
 	import { location } from "svelte-spa-router";
 	function extractRoute(pathname: string, breadcrumb: string) {
