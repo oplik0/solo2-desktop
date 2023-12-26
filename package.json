@@ -1,6 +1,6 @@
 {
 	"name": "solo2-desktop",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"author": {
 		"name": "oplik0",
 		"email": "opliko.reg@protonmail.com",
@@ -29,7 +29,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.7.5",
 		"@typescript-eslint/parser": "^6.7.5",
 		"conventional-changelog-conventionalcommits": "^7.0.0",
-		"dprint": "^0.44.0",
+		"dprint": "^0.45.0",
 		"eslint": "^8.51.0",
 		"eslint-plugin-svelte": "^2.34.0",
 		"husky": "^8.0.3",

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/oplik0/solo2-desktop/compare/svelte-v1.0.1...svelte-v1.0.2) (2023-12-26)
+
+
+### Bug Fixes
+
+* handle multiple keys too ([6337c8c](https://github.com/oplik0/solo2-desktop/commit/6337c8cbc089c131263de16dc17de757415ea073))
+* make OATH work if there are no keys yet ([d7b1b07](https://github.com/oplik0/solo2-desktop/commit/d7b1b07f85c61d1d43ae546159c55cbd752647e1))
+
 ## [1.0.1](https://github.com/oplik0/solo2-desktop/compare/svelte-v1.0.0...svelte-v1.0.1) (2023-12-25)
 
 

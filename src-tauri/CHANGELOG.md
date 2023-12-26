@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/oplik0/solo2-desktop/compare/tauri-v1.0.1...tauri-v1.0.2) (2023-12-26)
+
+
+### Miscellaneous Chores
+
+* **tauri:** Synchronize Tauri app versions
+
 ## [1.0.1](https://github.com/oplik0/solo2-desktop/compare/tauri-v1.0.0...tauri-v1.0.1) (2023-12-25)
 
 
