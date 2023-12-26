@@ -10,10 +10,7 @@
 	let keyList: Solo2List | undefined;
 	async function refreshOathList() {
 		oathList = await invoke("list_oath");
-		if (!oathList || Object.keys(oathList).length === 0) {
-			oathList = undefined;
-			keyList = await invoke("list_keys");
-		}
+		keyList = await invoke("list_keys");
 	}
 	listen("usb_change", refreshOathList);
 	listen("oath_change", refreshOathList);
@@ -32,8 +29,8 @@
 		{/each}
 	{/if}
 	<AddOath
-		uuid={Object.values(oathList ?? keyList ?? {})
-			.map((val) => (typeof val === "string" ? val : val.uuid))
+		uuid={Object.values(keyList ?? {})
+			.map((val) => val.uuid)
 			.filter((uuid) => !params.uuid || uuid === params.uuid)}
 	/>
 </section>
