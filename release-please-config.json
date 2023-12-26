@@ -1,20 +1,19 @@
 {
 	"$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+
 	"packages": {
 		".": {
-			"release-type": "node",
-			"component": "svelte"
+			"release-type": "node"
 		},
 		"src-tauri": {
-			"release-type": "rust",
-			"component": "tauri"
+			"release-type": "rust"
 		}
 	},
 	"plugins": [
 		{
 			"type": "linked-versions",
-			"groupName": "Tauri app",
-			"components": ["svelte", "tauri"]
+			"groupName": "Solo2 Desktop",
+			"components": [".", "src-tauri"]
 		}
 	]
 }
