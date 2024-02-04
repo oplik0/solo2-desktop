@@ -32,7 +32,9 @@
 			uuid: selected_uuid,
 			label,
 			issuer: issuer.length > 0 ? issuer : undefined,
-			secret,
+			secret: secret
+				.replace(/\s/g, "")
+				.padEnd(8 * Math.ceil(secret.length / 8), "="),
 			kind,
 			algorithm,
 			period,
