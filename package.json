@@ -1,6 +1,6 @@
 {
 	"name": "solo2-desktop",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"author": {
 		"name": "oplik0",
 		"email": "opliko.reg@protonmail.com",
@@ -18,50 +18,50 @@
 	},
 	"devDependencies": {
 		"@actions/core": "^1.10.1",
-		"@commitlint/cli": "^17.8.0",
-		"@commitlint/config-conventional": "^17.8.0",
+		"@commitlint/cli": "^18.0.0",
+		"@commitlint/config-conventional": "^18.0.0",
 		"@poppanator/sveltekit-svg": "^4.1.3",
-		"@sveltejs/vite-plugin-svelte": "^2.4.6",
-		"@tauri-apps/cli": "^1.5.2",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@tauri-apps/cli": "^1.5.6",
 		"@tsconfig/svelte": "^5.0.2",
-		"@types/cookie": "^0.5.2",
+		"@types/cookie": "^0.6.0",
 		"@types/semver": "^7.5.3",
 		"@typescript-eslint/eslint-plugin": "^6.7.5",
 		"@typescript-eslint/parser": "^6.7.5",
 		"conventional-changelog-conventionalcommits": "^7.0.0",
-		"dprint": "^0.41.0",
+		"dprint": "^0.45.0",
 		"eslint": "^8.51.0",
 		"eslint-plugin-svelte": "^2.34.0",
-		"fluent-svelte": "^1.6.0",
-		"husky": "^8.0.3",
+		"husky": "^9.0.0",
 		"lint-staged": "^15.0.0",
-		"svelte": "^4.2.1",
-		"svelte-check": "^3.5.2",
-		"svelte-preprocess": "^5.0.4",
+		"svelte": "^4.2.8",
+		"svelte-check": "^3.6.2",
+		"svelte-preprocess": "^5.1.3",
 		"tslib": "^2.6.2",
-		"typescript": "^5.2.2",
-		"vite": "^4.4.11"
+		"typescript": "^5.3.3",
+		"vite": "^5.0.12"
 	},
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fira-mono": "^5.0.8",
 		"@tauri-apps/api": "^1.5.0",
+		"fluent-svelte-extra": "^1.5.5",
 		"semver": "^7.5.4",
-		"svelte-spa-router": "github:mikeychowy/svelte-spa-router",
+		"svelte-spa-router": "^4.0.0",
 		"tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store#dev"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/oplik0/solo2-gui.git"
 	},
-	"packageManager": "pnpm@8.11.0",
+	"packageManager": "pnpm@8.15.1",
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"
 		]
 	},
 	"engines": {
-		"node": "^18.0.0 || ^19.0.0 || ^20.0.0"
+		"node": "^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0"
 	},
 	"lint-staged": {
 		"*.{ts,tsx,js,jsx,cjs,mjs,json,md,toml,svelte}": "dprint fmt"

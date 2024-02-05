@@ -1,4 +1,6 @@
 {
+	"$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+
 	"packages": {
 		".": {
 			"release-type": "node"
@@ -6,5 +8,12 @@
 		"src-tauri": {
 			"release-type": "rust"
 		}
-	}
+	},
+	"plugins": [
+		{
+			"type": "linked-versions",
+			"groupName": "Solo2 Desktop",
+			"components": [".", "src-tauri"]
+		}
+	]
 }
