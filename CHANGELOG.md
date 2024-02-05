@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/oplik0/solo2-desktop/compare/solo2-desktop-v1.1.0...solo2-desktop-v1.1.1) (2024-02-05)
+
+
+### Bug Fixes
+
+* use correct dependency branch ([50d0cdd](https://github.com/oplik0/solo2-desktop/commit/50d0cdde651653ce506bc6e8d044a0536a6b7bc0))
+
 ## [1.1.0](https://github.com/oplik0/solo2-desktop/compare/solo2-desktop-v1.0.2...solo2-desktop-v1.1.0) (2024-02-05)
 
 
